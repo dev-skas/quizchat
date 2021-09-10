@@ -1,0 +1,17 @@
+body{
+    background-color: #cc9900;
+
+}
+#wave {
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    background-color: white;
+    border-bottom-right-radius: 80%;
+}
+/* mobile firendly */
+
+@media screen and (max-width: 500px) {
+   
+     
+  }

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="body.css">
+
+</head>
+<body>
+<div class="decor">
+    <div id="wave"></div>
+
+</div>
+
+<div onclick="chatView()" class="footSect">
+        <img src="./image/foot.png" alt=""> 
+        <h3>Start Quiz</h3>
+</div>
+
+<div class="hide" id="chatContainer">
+
+   
+    <div  class="introSec">
+
+    </div>
+
+    <div class="chatSec">
+        <div class="topNav">
+            <img src="./image/profile.jpeg" alt="">
+            <h4>Syamjith Krishna</h4>
+            <h5>Online</h5>
+            <i id="close" class="fas fa-times"></i>
+        </div>
+        <div class="contentSec">
+<!-- contentsection  start-->
+   <!-- marksheet -->
+   
+   <div id="markSheet"class="hide quizSec arrow-left">
+    <center><h1>Quiz Result</h1></center>
+    <br>
+    <h4>Total Questions: <span id="questions"></span></h4>
+    <h4>Attempt: <span id="attempt"></span></h4>
+    <h4>Correct: <span id="correct"></span></h4>
+    <h4>Wrong: <span id="wrong"></span></h4>
+    
+
+   </div>
+   
+
+
+<!-- welcome -->
+            <div id="troll"class=" troll arrow-left">
+            <img src="./image/welcome.png" alt="">
+            </div>
+<!-- asking name -->
+            <div id="name" class="quizSec arrow-left">
+                <p>My name is syamjith what is your name</p>
+                <p>My name is syamjith what is your name</p>
+
+                <p>My name is syamjith what is your name</p>
+
+            </div>
+<!-- user userreplay  -->
+            <div id="userReplay" class="hide userAns arrow-right">
+                <h4 id="userText"></h4>
+            </div>
+            
+<!-- rules  -->
+            <div id="rules" class="hide intro">
+            <div class="quizSec arrow-left">
+                <p id="ruleText"></p>
+
+             </div>
+            <div class="userButton ">
+                <button onclick="start()">start now</button>
+            <button onclick="notNow()">not now</button>
+
+            </div>
+            </div>
+
+<!-- quiz  -->
+            
+            <div id="question" class="hide">
+                <div class="quizSec arrow-left">
+                    <p id="questionText"></p>
+                   
+                </div>
+                <div class="option">
+                    <button id="A"></button>
+                    <button id="B"></button>
+                    <button id="C"></button>
+                    <button id="D"></button>
+                </div>
+        
+            </div>
+ <!-- user answer -->
+                <div id="userAnswer" class=" hide userAns arrow-right">
+                    <h4 id="userAns">ff</h4>
+                </div>
+  
+<!-- answer     -->
+
+        
+            <div id="answerReplay"class="hide answer">
+            <div class="quizSec arrow-left">
+                <p id="response">My name is syamjith what is your name</p>
+            </div>
+           
+            <div class="userButton ">
+                <button id="end">End Quiz</button>
+            <button id="next">Next Question</button>
+
+            </div>
+            </div>   
+                    
+
+
+            
+ <!-- contentsection  end-->
+
+        </div>
+
+        <div id="inputSection" class="inputSec">
+            <input id="input" class="inputField" type="text">
+            <i id="send" class="sendIcon fas fa-play"></i>
+
+
+        </div>
+
+    </div>
+
+</div>
+<script src="script.js"></script>
+<script src="question.js"></script>
+
+</body>
+</html>
