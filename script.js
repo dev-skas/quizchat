@@ -270,7 +270,7 @@ function notNow(){
     // document.getElementById("name").setAttribute("class","hide");
     document.getElementById("troll").setAttribute("class","hide");
     document.getElementById("name").classList.remove("hide");
-    document.getElementById("nameText").innerHTML = "Hi <b>"+name+"</b> ";
+    document.getElementById("nameText").innerHTML = "Hi <b>"+name+"</b> ഒത്തിരി പേരെ പഠിപ്പിച്ചു തളർനിരിക്കുവാണ്  അപ്പോഴാണ് ഒരു തമാശ. വന്ന സ്ഥിതിക്ക് ഒരു ചോദ്യമെങ്കിലും നോക്കാമായിരുന്നു. 😪 ";
     
 
 }
