@@ -262,4 +262,16 @@ function enable(){
     document.getElementById("D").disabled=false;
 
 }
-console.log("endha monuseaa")
+function notNow(){
+    var name = document.getElementById("input").value;
+    document.getElementById("userReplay").setAttribute("class","hide");
+    document.getElementById("rules").setAttribute("class","hide");
+    document.getElementById("inputSection").setAttribute("class","hide");
+    // document.getElementById("name").setAttribute("class","hide");
+    document.getElementById("troll").setAttribute("class","hide");
+    document.getElementById("name").classList.remove("hide");
+    document.getElementById("nameText").innerHTML = "Hi <b>"+name+"</b> ";
+    
+
+}
+console.log("😘 Project is under developement");

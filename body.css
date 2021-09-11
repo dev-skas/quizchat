@@ -1,18 +1,23 @@
 body{
+    
     background-color: #cc9900;
+
 
 }
 #wave {
     position: absolute;
     height: 200px;
     width: 100%;
-    background-color: white;
-  
+   
+    background-color: #062855de;
 }
 #box {
-    position: absolute;
-    height: 200px;
-    width: 100%;
+    text-align: center;
+    margin: auto;
+    position:relative;
+    height: auto;
+    width: 80%;
+    top: 150px;
     background-color: white;
   
 }
