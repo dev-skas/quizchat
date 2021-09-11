@@ -49,8 +49,8 @@ function start(){
 
 
 troll=[
-    { correct:['super ',' aswsome'],
-      wrong:['wrong 1','wrong 2'],
+    { correct:["ബോസ് ഞാൻ നിങ്ങടെ ഒരു ആരാധകൻ ആയിട്ടോ..."," നിങ്ങൾ ആളു ബുജിയാണെല്ലേ"," നീ ആരെടെയ് പുസ്തക പുഴുവോ..."," തൃപ്തിയായി മൊതലാളി തൃപ്തിയായി..."," നിങ്ങൾ പുലിയാണ് മൊതലാളി..."," നീ പൊന്നപ്പനെല്ലടാ തങ്കപ്പനാ തങ്കപ്പൻ"," കളറായിട്ടുണ്ടല്ലോ"," കിടുക്കി തിമിർത്തു കലക്കി"," നിങ്ങൾ സൂപ്പറാ"," വണ്ടർഫുൾ"," ഹോ! ഭയങ്കരം തന്നെ"," കലക്കി മൊതലാളി"," നീ ഇത്രേം ഭയങ്കരൻ ആയ വിവരം ഞാനറിഞ്ഞില്ല"," നീ സുലയ്മാൻ അല്ലടാ ഹനുമാനാ"," ഇത്രേം കാലം എവിടെയായിരുന്നു"," പണ്ഡിതനാണെന് തോനുന്നു..."," ബലെ ഭേഷ്"," കൊള്ളാം മോനെ നിന്നെ ഞാൻ നിരുത്സാഹപ്പെടുത്തുന്നില്ല"," പത്ത്‌ തലയാ തനി രാവണൻ"," അമ്പട കേമാ സണ്ണി കുട്ടാ","  വെൽഡൻ മിസ്റ്റർ പെരേര"],
+      wrong:["I am the sorry അളിയാ"," എന്റെ ഭാഗത്തും തെറ്റുണ്ട്"," എല്ലാം വിധിയുടെ വിളയാട്ടം"," എന്നെ കൊല്ലാതിരിക്കാൻ പറ്റോ"," കഷ്ട്ടം തന്നെ മൊതലാളി"," എന്തൊരു കഷ്ടമാണ്"," കരയിപ്പിക്കലെടാ"," ഒരു മാറ്റോം ഇല്ല"," ഇതൊക്ക രാജ്യത്തിന്റെ വളർച്ചയ്ക്ക് വേണ്ടിയാണെന്ന് ആലോചിക്കുമ്പോഴാ...."," അങ്ങനെ പവനായി ശവമായി"," ഇങ്ങോട്ടൊന്നും പറയണ്ട"," എന്തൊരു മനോഹരമായ നടക്കാത്ത സ്വപനം"," എടാ ദാസാ ഏതാ ഈ അലവലാതി"," ഇത്രക്ക് ചീപ്പാണോ ആര്ടിസ്റ് ബേബി"," ഒരിച്ചിരി ഉളുപ്പ്"," ഇവിടരുമില്ലേ ഇതൊന്ന് പറഞ്ഞു ചിരിയ്ക്കാൻ"," ദേ വന്നിരിക്കുന്നു നിന്റെ മോൻ"," അഹ് ബെസ്റ്റ്"," അന്തസ് വേണമെടാ അന്തസ്"," എന്തോന്നടേയ് ഇത്"," എന്താടോ നന്നാവാത്തെ"," യ്യോ ദാരിദ്ര്യം"]
 
     }
 
@@ -139,7 +139,7 @@ function generateRandomQuestion(){
     }
 
     document.getElementById("userAnswer").classList.remove("hide");
-    document.getElementById("userAns").innerText = myApp[questionIndex].options[0];
+    document.getElementById("userAns").innerHTML = myApp[questionIndex].options[0];
 
 
     
@@ -160,7 +160,7 @@ function generateRandomQuestion(){
  
     }
     document.getElementById("userAnswer").classList.remove("hide");
-    document.getElementById("userAns").innerText = myApp[questionIndex].options[1];
+    document.getElementById("userAns").innerHTML = myApp[questionIndex].options[1];
    }
 
 
@@ -180,7 +180,7 @@ function generateRandomQuestion(){
  
     }
     document.getElementById("userAnswer").classList.remove("hide");
-    document.getElementById("userAns").innerText = myApp[questionIndex].options[2];
+    document.getElementById("userAns").innerHTML = myApp[questionIndex].options[2];
    }
 
 
@@ -199,7 +199,7 @@ function generateRandomQuestion(){
  
     }
      document.getElementById("userAnswer").classList.remove("hide");
-    document.getElementById("userAns").innerText = myApp[questionIndex].options[3];
+    document.getElementById("userAns").innerHTML = myApp[questionIndex].options[3];
    }
 
 
