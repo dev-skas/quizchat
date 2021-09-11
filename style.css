@@ -52,7 +52,7 @@
 .contentSec{
     overflow-y: scroll;
     position: relative;
-    height:600px;
+    height:650px;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none; 
 
@@ -100,7 +100,7 @@
 }
 .intro{
     position: relative;
-    margin-top: 80PX;
+    margin-top: 60PX;
 }
 .intro button, .answer button{
     width: 30%;
@@ -147,7 +147,7 @@
 }
 .quizSec{
     background-color:rgb(255, 255, 255);
-    width: 60%;
+    width: 70%;
     margin-top: 20px;
     padding: 10px;
     /* text-align: center; */
@@ -162,7 +162,7 @@
     content: " ";
     position: absolute;
     left: -10px;
-    top: 8px;
+    top: 10px;
     border-top: 12px solid transparent;
     border-right: 12px solid white;
     border-left: none;
@@ -188,7 +188,7 @@
       width: 150px;
   }
   .option{ 
-     width: 60%;
+     width: 70%;
     padding: 10px;
     text-align: center;
     position: relative;
@@ -212,7 +212,7 @@
     float:right;
     background-color: rgb(202, 202, 202);
     width: 60%;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
     text-align: center;
     position: relative;
@@ -224,8 +224,8 @@
 .userAns.arrow-right:after {
     content: " ";
     position: absolute;
-    right: -10px;
-    top: 12px;
+    right: -8px;
+    top: 10px;
     border-top: 12px solid transparent;
     border-right: none;
     border-left: 12px solid rgb(202, 202, 202);

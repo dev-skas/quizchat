@@ -28,7 +28,7 @@ function send(){
         document.getElementById("userReplay").innerText =name;
         document.getElementById("inputSection").setAttribute("class","hide");
         document.getElementById("rules").classList.remove("hide");
-        document.getElementById("ruleText").innerHTML = "<b>"+name+"</b>"+" welcome to quiz";
+        document.getElementById("ruleText").innerHTML = "Hi <b>"+name+"</b>  ഇപ്പോൾ ഞാൻ "+ myApp.length+" ചോദ്യങ്ങൾ മാത്രമേ പഠിച്ചിട്ടുള്ളു. അത് നിങ്ങൾക്കും പഠിക്കാം. എന്റെ മൊതലാളി കൂടുതൽ ചോദ്യങ്ങൾ പഠിപ്പിക്കുമ്പോൾ നിങ്ങൾക്കും ആ ചോദ്യങ്ങൾ ലഭ്യമാകും. ഓരോ ചോദ്യത്തിനും ഒരു മാർക്കാണ്. നെഗറ്റിവ് മാർക്ക്‌ ഇല്ല";
 
 
     }
@@ -207,7 +207,7 @@ function generateRandomQuestion(){
     wrongQn=wrongQn+1;
     const wrong = Math.floor(Math.random() * troll[0].wrong.length);
     document.getElementById("answerReplay").classList.remove("hide");
-    document.getElementById("response").innerHTML= troll[0].wrong[wrong];
+    document.getElementById("response").innerHTML= "നിങ്ങൾ  തിരഞ്ഞെടുത്ത ഉത്തരം  <b style='color: red;'> തെറ്റാണ്</b>.<br>"+troll[0].wrong[wrong];
    
    }
 
@@ -215,7 +215,7 @@ function generateRandomQuestion(){
     correctQn =correctQn+1;
     const correct = Math.floor(Math.random() * troll[0].correct.length);
     document.getElementById("answerReplay").classList.remove("hide");
-    document.getElementById("response").innerHTML= troll[0].correct[correct];
+    document.getElementById("response").innerHTML= "നിങ്ങൾ  തിരഞ്ഞെടുത്ത ഉത്തരം  <b style='color: green;'>ശരിയാണ്</b>.<br>"+troll[0].correct[correct];
 
    }
 
@@ -262,3 +262,4 @@ function enable(){
     document.getElementById("D").disabled=false;
 
 }
+console.log("endha monuseaa")
