@@ -1,4 +1,7 @@
 let myArray=[];
+let retryArray=[];
+let restartArray =[];
+
 let questionIndex =0;
 var correctQn =0;
 var wrongQn=0;
@@ -7,6 +10,10 @@ var qn=0;
 
 document.getElementById("close").addEventListener("click",hide);
 document.getElementById("send").addEventListener("click",send);
+document.getElementById("retry").addEventListener("click",retry);
+document.getElementById("restart").addEventListener("click",restart);
+
+
 
 
 
@@ -37,6 +44,7 @@ function send(){
 }
 
 function start(){
+    restartArray =myApp;
     document.getElementById("userReplay").setAttribute("class","hide");
     document.getElementById("rules").setAttribute("class","hide");
     document.getElementById("inputSection").setAttribute("class","hide");
@@ -69,9 +77,11 @@ troll=[
 
 
 function generateRandomQuestion(){
+
     const randomNumber=Math.floor(Math.random() * myApp.length);
    let hitDuplicate=0;
    if(myArray.length==myApp.length){
+    hideretry();
     document.getElementById("question").classList.add("hide");
     document.getElementById("questions").innerHTML =myApp.length
     document.getElementById("attempt").innerHTML =qn;
@@ -103,9 +113,13 @@ function generateRandomQuestion(){
     
     myArray.push(randomNumber);    
     load();
+    
 }
     
    function load() {
+    
+
+
     enable()
     qn =qn+1;
     document.getElementById("questionText").innerHTML= myApp[questionIndex].question;
@@ -204,6 +218,11 @@ function generateRandomQuestion(){
 
 
    function wrong(){
+
+    
+     retryArray.push(myApp[questionIndex]);
+
+
     wrongQn=wrongQn+1;
     const wrong = Math.floor(Math.random() * troll[0].wrong.length);
     document.getElementById("answerReplay").classList.remove("hide");
@@ -237,6 +256,7 @@ function generateRandomQuestion(){
    document.getElementById("end").addEventListener("click",end);
 
 function end(){    
+    hideretry();
     document.getElementById("answerReplay").classList.add("hide");
     document.getElementById("userAnswer").classList.add("hide");
     document.getElementById("question").classList.add("hide");
@@ -275,3 +295,49 @@ function notNow(){
 
 }
 console.log("😘 Project is under developement");
+
+function retry(){
+    document.getElementById("markSheet").classList.add("hide");
+    document.getElementById("question").classList.remove("hide");
+         questionIndex =0;
+         myApp = retryArray;
+         myArray=[];
+         retryArray=[];
+         correctQn =0;
+         wrongQn=0;
+         qn=0;
+  
+    document.getElementById("A").className = "";
+    document.getElementById("B").className = "";
+    document.getElementById("C").className = "";
+    document.getElementById("D").className = "";
+         generateRandomQuestion();
+}
+
+function hideretry(){
+    if(retryArray.length=="0"){
+        document.getElementById("retry").classList.add("hide");
+      }else{
+        document.getElementById("retry").classList.remove("hide");
+
+      }
+}
+
+function restart(){
+    document.getElementById("markSheet").classList.add("hide");
+    document.getElementById("question").classList.remove("hide");
+         questionIndex =0;
+         myApp = restartArray;
+         myArray=[];
+         retryArray=[];
+         correctQn =0;
+         wrongQn=0;
+         qn=0;
+   
+    document.getElementById("A").className = "";
+    document.getElementById("B").className = "";
+    document.getElementById("C").className = "";
+    document.getElementById("D").className = "";
+         generateRandomQuestion();
+
+}

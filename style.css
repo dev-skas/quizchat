@@ -19,6 +19,7 @@
 .footSect img{
     height: 50px;
     width: 50px;
+    border-top-left-radius:50%;
 }
 .footSect h3{
    position: absolute;
@@ -102,7 +103,7 @@
     position: relative;
     margin-top: 60PX;
 }
-.intro button, .answer button{
+.intro button, .answer button,.retry button {
     width: 30%;
     margin-top: 10px;
     padding: 5px;
