@@ -52,7 +52,7 @@
 .contentSec{
     overflow-y: scroll;
     position: relative;
-    height:650px;
+    height:88%;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none; 
 
