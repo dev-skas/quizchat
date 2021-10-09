@@ -9,22 +9,27 @@
 .footSect{
     height: 50px;
     width: 170px;
-    background-color:#062855de;
+    background-color: #062855de;
     color: white;
     right: 30px;
-    bottom:50px; 
-    position:fixed; 
-    border-radius: 50px; 
+    bottom: 40px;
+    position: fixed;
+    border-radius: 50px;
 }
+
 .footSect img{
     height: 50px;
     width: 50px;
     border-top-left-radius:50%;
+    border-bottom-left-radius:50%;
+
 }
 .footSect h3{
-   position: absolute;
-    right: 20px;
-    bottom:15px; 
+    position: absolute !important;
+    right: 20px !important;
+    font-size: 18px;
+    bottom:5px !important; 
+  
 }
 /* intro Section  */
 .introSec{
@@ -80,12 +85,14 @@
     
 }
 .topNav h4 {
+    font-size: 15px;
     top: 10px;
     left: 80px;
     position: absolute;
 
 }
 .topNav h5{
+    font-size: 12px;
     top: 35px;
     left: 80px;
     position: absolute;
@@ -140,7 +147,7 @@
     color: white;
 }
 .inputField{
-    width: 80%;
+    width: 70%;
     height: 40px;
     border-radius: 30px;
     margin-left: 10px;
@@ -159,7 +166,7 @@
     margin-left: 15px;
     border-radius: 20px;  
     animation: mymove 1s ;
-
+box-sizing: content-box;
 
 }
 .quizSec.arrow-left:after {
@@ -243,7 +250,8 @@
     background-color:#d23723 !important;
 
 }
- 
+
+
  
 /* mobile firendly */
 

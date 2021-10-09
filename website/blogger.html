@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Quiz Master</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+}
+
+.hide{
+    display: none;
+}
+.footSect{
+    height: 50px;
+    width: 170px;
+    background-color: #062855de;
+    color: white;
+    right: 30px;
+    bottom: 40px;
+    position: fixed;
+    border-radius: 50px;
+}
+
+.footSect img{
+    height: 50px;
+    width: 50px;
+    border-top-left-radius:50%;
+    border-bottom-left-radius:50%;
+
+}
+.footSect h3{
+    position: absolute !important;
+    right: 20px !important;
+    font-size: 18px;
+    bottom:5px !important; 
+  
+}
+/* intro Section  */
+.introSec{
+    height: 100%;
+    width: 400px;
+    background-color: aqua;
+    right: 10px;
+    bottom:20px; 
+    position:fixed; 
+    border-radius: 10px;    
+     display: none;
+}
+.chatSec{
+    height: 96%;
+    width: 400px;
+    background-color:rgb(224, 224, 224);
+    right: 20px;
+    bottom:10px; 
+    position:fixed; 
+    /* border-radius: 10px;  */
+    box-shadow:  inset 0 0 10px #000000;
+    overflow: hidden;
+    
+
+}
+.contentSec{
+    overflow-y: scroll;
+    position: relative;
+    height:88%;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+
+   
+}
+.contentSec::-webkit-scrollbar {
+    display: none;
+}
+.topNav{
+    height: 60px;
+    width: 100%;
+    background-color:#062855de;
+    position: relative;
+    color:rgb(224, 224, 224);;
+    
+  
+}
+.topNav img{
+    margin-left:20px;
+    margin-top:5px ;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    
+}
+.topNav h4 {
+    font-size: 15px;
+    top: 10px;
+    left: 80px;
+    position: absolute;
+
+}
+.topNav h5{
+    font-size: 12px;
+    top: 35px;
+    left: 80px;
+    position: absolute;
+    color: rgba(241, 241, 242, 0.63);
+
+}
+.topNav i{
+    color:rgb(177, 179, 181);
+    font-size: 30px;
+    float:right;
+    margin-right:20px;
+    margin-top:15px;
+}
+.intro{
+    position: relative;
+    margin-top: 60PX;
+}
+.intro button, .answer button,.retry button {
+    width: 30%;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    margin-left: 15px;
+    font-size: 14px;
+
+    border-radius: 20px;
+    background-color: #062855de;
+    color: white;
+    animation: mymove 1s ;
+
+
+}
+.answer{
+    margin-top: 80PX;
+}
+.inputSec{
+    height: 60px;
+    width: 100%;
+    /* background-color:violet; */
+    bottom: 0;
+    position: absolute;
+
+}
+.sendIcon {
+    padding: 12px;
+    font-size: 24px;
+    background-color: #062855de;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: white;
+}
+.inputField{
+    width: 70%;
+    height: 40px;
+    border-radius: 30px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border: 2px solid grey;
+    text-align: center;
+}
+
+.quizSec{
+    background-color:rgb(255, 255, 255);
+    width: 70%;
+    margin-top: 20px;
+    padding: 10px;
+    /* text-align: center; */
+    position: relative;
+    margin-left: 15px;
+    border-radius: 20px;  
+    animation: mymove 1s ;
+box-sizing: content-box;
+
+}
+.quizSec.arrow-left:after {
+    content: " ";
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    border-top: 12px solid transparent;
+    border-right: 12px solid white;
+    border-left: none;
+    border-bottom: 12px solid transparent;
+  }
+  .troll{
+    /* background-color: gray; */
+    width: 60%;
+    /* margin-top: 20px; */
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    margin-left: 15px;
+    border-radius: 20px;
+
+    animation: mymove 1s ;
+  }
+  @keyframes mymove {
+    from {left: -150px;}
+    to {left: 0px;}
+  }
+  .troll img{
+      width: 150px;
+  }
+  .option{ 
+     width: 70%;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    margin-left: 15px;
+    border-radius: 20px;
+    animation: mymove 1s ;
+
+
+  }
+
+#A,#B,#C,#D{
+    width: 100%;
+    list-style: none;
+    padding: 10px;
+    background-color: #062855de;
+    color: white;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+.userAns{
+    float:right;
+    background-color: rgb(202, 202, 202);
+    width: 60%;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    margin-right: 15px;
+    border-radius: 20px;
+    /* height: 30px; */
+    position: relative;
+}
+.userAns.arrow-right:after {
+    content: " ";
+    position: absolute;
+    right: -8px;
+    top: 10px;
+    border-top: 12px solid transparent;
+    border-right: none;
+    border-left: 12px solid rgb(202, 202, 202);
+    border-bottom: 12px solid transparent;
+  }
+.correct{
+    background-color: #11c466 !important;
+
+}
+.wrong{
+    background-color:#d23723 !important;
+
+}
+
+
+ 
+/* mobile firendly */
+
+@media screen and (max-width: 500px) {
+    .introSec {
+     width: 100%; 
+     height: 100%;
+     right: 0px;
+     bottom:0px; 
+    }
+    .chatSec {
+        width: 100%; 
+       height: 100%;
+       right: 0px;
+       bottom:0px; 
+      }
+  }
+    </style>
+</head>
+<body class="bg-dark">
+    
+
+
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 ">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"><span class="navbar-toggler-icon"></span></button>
+
+            <a href="" class="navbar-brand"> Quiz Chat</a>
+    
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav">
+                 
+                  <li class="nav-item">
+                    <a class="nav-link" href="mailto:mypsclife.in@gmail.com?subject=Quiz chat">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://pages.razorpay.com/pl_I7FCrYonk6v51R/view">Support  Us</a>
+                  </li>
+                   
+                </ul>
+            </div>
+    
+        </div>
+       </nav>
+
+      <div class="row  row-cols-1 row-cols-md-3 mx-lg-5 mx-3 g-4">
+          <div class="col"></div>
+
+        <div class="col">
+            <div class="card" >
+                <img src="https://info.umkc.edu/diversity/wp-content/uploads/2015/01/showyoursupport1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  <p class="card-text">പഠനം  രസകരമായി  എങ്ങനെ കൊണ്ട് പോകാം എന്ന ചിന്തയിൽ ആണ്  Quiz  Chat എന്ന  ഈ വെബ് ആപ്പ് ഉണ്ടാക്കാൻ തീരുമാനിച്ചത്. ഇത് ഇനിയും നല്ല രീതിയിൽ മെച്ചപ്പെടുത്താൻ  ശ്രെമിക്കുന്നുണ്ട്.  കൂടുതൽ  മെച്ചപ്പെടുത്താൻ നിങ്ങളുടെ ഒരു കൈ സഹായം ഞങ്ങൾക്ക് ഇപ്പോൾ ആവിശ്യമുണ്ട്..</p>
+                  <center>
+                  <div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_I7FCrYonk6v51R/view" data-text="Support Us" data-color="#528FF0" data-size="large">
+                    <script>
+                      (function(){
+                        var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
+                        if(x){ var s=d.createElement('script'); s.defer=!0;s.id='razorpay-embed-btn-js';
+                        s.src='https://cdn.razorpay.com/static/embed_btn/bundle.js';d.body.appendChild(s);} else{var rzp=window['__rzp__'];
+                        rzp && rzp.init && rzp.init()}})();
+                    </script>
+                  </div>
+                </center> 
+                      
+                  </div>
+              </div>
+        </div>
+
+        <div class="col"></div>
+
+        <!-- <div class="col">
+            <div class="card" >
+                <img src="https://image.shutterstock.com/image-vector/place-your-ads-here-watermark-260nw-600877025.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>>
+        </div>
+        <div class="col">
+            <div class="card" >
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div> -->
+       
+      </div>
+
+
+      
+
+
+
+
+<!-- bodycontent -->
+<div onclick="chatView()" class="footSect">
+        <img src="./image/bot.jpg" alt=""> 
+        <h3>Start Quiz</h3>
+</div>
+
+<div class="hide" id="chatContainer">
+
+   
+    <div  class="introSec">
+
+    </div>
+
+    <div class="chatSec">
+        <div class="topNav">
+            <img src="./image/bot.jpg" alt="">
+            <h4>Quiz Master</h4>
+            <h5 >Online</h5>
+            <i id="close" class="fas fa-times"></i>
+        </div>
+        <div class="contentSec">
+<!-- contentsection  start-->
+   <!-- marksheet -->
+   
+   <div id="markSheet"class="hide quizSec arrow-left">
+    <center><h1>Quiz Result</h1></center>
+    <br>
+    <h4 hidden >Total Questions: <span id="questions"></span></h4>
+    <h4> Total Attempt        : <span id="attempt"></span></h4>
+    <h4>Correct        : <span style="color: green;" id="correct"></span></h4>
+    <h4>Wrong          : <span style="color: red;" id="wrong"></span></h4>
+    <br>
+    <div id="retryReset">
+        <center><h4>Retry wrong Questions</h4></center>
+    <div class="retry ">
+        <button id="retry">Retry</button>
+        <button id="restart">Restart</button>
+   
+    </div>
+    <div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_I7FCrYonk6v51R/view" data-text="SUPPORT US" data-color="#528FF0" data-size="medium">
+        <script>
+          (function(){
+            var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
+            if(x){ var s=d.createElement('script'); s.defer=!0;s.id='razorpay-embed-btn-js';
+            s.src='https://cdn.razorpay.com/static/embed_btn/bundle.js';d.body.appendChild(s);} else{var rzp=window['__rzp__'];
+            rzp && rzp.init && rzp.init()}})();
+        </script>
+      </div>
+          
+    </div>
+
+   </div>
+   
+
+
+<!-- welcome -->
+            
+            <div id="troll"class=" troll quizSec arrow-left">
+            <img src="./image/welcome.png" alt="">
+            </div>
+            
+<!-- asking name -->
+            <div id="name" class="quizSec arrow-left">
+                <p id="nameText">ഞാനാണ് ഇന്നത്തെ ക്വിസ് മാസ്റ്റർ.<b>നിങ്ങളുടെ പേര് എന്താണ് ?</b></p> 
+                <div id="payment" class="razorpay-embed-btn hide" data-url="https://pages.razorpay.com/pl_I7FCrYonk6v51R/view" data-text="SUPPORT US" data-color="#528FF0" data-size="medium">
+                    <script>
+                      (function(){
+                        var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
+                        if(x){ var s=d.createElement('script'); s.defer=!0;s.id='razorpay-embed-btn-js';
+                        s.src='https://cdn.razorpay.com/static/embed_btn/bundle.js';d.body.appendChild(s);} else{var rzp=window['__rzp__'];
+                        rzp && rzp.init && rzp.init()}})();
+                    </script>
+                  </div>
+                  <button class="hide" onclick="retry()" id="restarts">Restart</button>
+                    
+              
+
+            </div>
+<!-- user userreplay  -->
+            <div id="userReplay" class="hide userAns arrow-right">
+                <h4 id="userText"></h4>
+            </div>
+            
+<!-- rules  -->
+            <div id="rules" class="hide intro">
+            <div class="quizSec arrow-left">
+                <p id="ruleText"></p>
+
+             </div>
+            <div class="userButton ">
+                <button onclick="start()">തുടങ്ങാം</button>
+            <button onclick="notNow()">തുടങ്ങണ്ട</button>
+
+            </div>
+            </div>
+
+<!-- quiz  -->
+            
+            <div id="question" class="hide">
+                <div class="quizSec arrow-left">
+                    <p id="questionText"></p>
+                   
+                </div>
+                <div class="option">
+                    <button id="A"></button>
+                    <button id="B"></button>
+                    <button id="C"></button>
+                    <button id="D"></button>
+                </div>
+        
+            </div>
+ <!-- user answer -->
+                <div id="userAnswer" class=" hide userAns arrow-right">
+                    <h4 id="userAns"></h4>
+                </div>
+  
+<!-- answer     -->
+
+        
+            <div id="answerReplay"class="hide answer">
+            <div class="quizSec arrow-left">
+                <p id="response">My name is syamjith what is your name</p>
+            </div>
+           
+            <div class="userButton ">
+                <button id="end">End Quiz</button>
+            <button id="next">Next</button>
+
+            </div>
+            </div>   
+
+            
+                    
+
+
+            
+ <!-- contentsection  end-->
+
+        </div>
+
+        <div id="inputSection" class="inputSec">
+            <input id="input" class="inputField" type="text" placeholder="Enter Name">
+            <i id="send" class="sendIcon fas fa-play"></i>
+
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    let myArray=[];
+let retryArray=[];
+let restartArray =[];
+
+let questionIndex =0;
+var correctQn =0;
+var wrongQn=0;
+var qn=0;
+
+
+document.getElementById("close").addEventListener("click",hide);
+document.getElementById("send").addEventListener("click",send);
+document.getElementById("retry").addEventListener("click",retry);
+document.getElementById("restart").addEventListener("click",restart);
+
+
+
+
+
+
+function hide(){
+ document.getElementById("chatContainer").setAttribute("class","hide")
+
+}
+function chatView(){
+    document.getElementById("chatContainer").removeAttribute("class","hide")
+    
+}
+function send(){
+    
+     var name = document.getElementById("input").value;
+    if(name==""){
+        alert("enter name please")
+    }else{
+        document.getElementById("userReplay").classList.remove("hide");
+        document.getElementById("userReplay").innerText =name;
+        document.getElementById("inputSection").setAttribute("class","hide");
+        document.getElementById("rules").classList.remove("hide");
+        document.getElementById("ruleText").innerHTML = "Hi <b>"+name+"</b>  ഇപ്പോൾ ഞാൻ "+ myApp.length+" ചോദ്യങ്ങൾ മാത്രമേ പഠിച്ചിട്ടുള്ളു. അത് നിങ്ങൾക്കും പഠിക്കാം. എന്റെ മൊതലാളി കൂടുതൽ ചോദ്യങ്ങൾ പഠിപ്പിക്കുമ്പോൾ നിങ്ങൾക്കും ആ ചോദ്യങ്ങൾ ലഭ്യമാകും. ഓരോ ചോദ്യത്തിനും ഒരു മാർക്കാണ്. നെഗറ്റിവ് മാർക്ക്‌ ഇല്ല";
+
+
+    }
+
+
+}
+
+function start(){
+    restartArray =myApp;
+    document.getElementById("userReplay").setAttribute("class","hide");
+    document.getElementById("rules").setAttribute("class","hide");
+    document.getElementById("inputSection").setAttribute("class","hide");
+    document.getElementById("name").setAttribute("class","hide");
+    document.getElementById("troll").setAttribute("class","hide");
+    document.getElementById("question").classList.remove("hide");
+    generateRandomQuestion()
+}
+
+
+
+troll=[
+    { correct:["ബോസ് ഞാൻ നിങ്ങടെ ഒരു ആരാധകൻ ആയിട്ടോ..."," നിങ്ങൾ ആളു ബുജിയാണെല്ലേ"," നീ ആരെടെയ് പുസ്തക പുഴുവോ..."," തൃപ്തിയായി മൊതലാളി തൃപ്തിയായി..."," നിങ്ങൾ പുലിയാണ് മൊതലാളി..."," നീ പൊന്നപ്പനെല്ലടാ തങ്കപ്പനാ തങ്കപ്പൻ"," കളറായിട്ടുണ്ടല്ലോ"," കിടുക്കി തിമിർത്തു കലക്കി"," നിങ്ങൾ സൂപ്പറാ"," വണ്ടർഫുൾ"," ഹോ! ഭയങ്കരം തന്നെ"," കലക്കി മൊതലാളി"," നീ ഇത്രേം ഭയങ്കരൻ ആയ വിവരം ഞാനറിഞ്ഞില്ല"," നീ സുലയ്മാൻ അല്ലടാ ഹനുമാനാ"," ഇത്രേം കാലം എവിടെയായിരുന്നു"," പണ്ഡിതനാണെന് തോനുന്നു..."," ബലെ ഭേഷ്"," കൊള്ളാം മോനെ നിന്നെ ഞാൻ നിരുത്സാഹപ്പെടുത്തുന്നില്ല"," പത്ത്‌ തലയാ തനി രാവണൻ"," അമ്പട കേമാ സണ്ണി കുട്ടാ","  വെൽഡൻ മിസ്റ്റർ പെരേര"],
+      wrong:["I am the sorry അളിയാ"," എന്റെ ഭാഗത്തും തെറ്റുണ്ട്"," എല്ലാം വിധിയുടെ വിളയാട്ടം"," എന്നെ കൊല്ലാതിരിക്കാൻ പറ്റോ"," കഷ്ട്ടം തന്നെ മൊതലാളി"," എന്തൊരു കഷ്ടമാണ്"," കരയിപ്പിക്കലെടാ"," ഒരു മാറ്റോം ഇല്ല"," ഇതൊക്ക രാജ്യത്തിന്റെ വളർച്ചയ്ക്ക് വേണ്ടിയാണെന്ന് ആലോചിക്കുമ്പോഴാ...."," അങ്ങനെ പവനായി ശവമായി"," ഇങ്ങോട്ടൊന്നും പറയണ്ട"," എന്തൊരു മനോഹരമായ നടക്കാത്ത സ്വപനം"," എടാ ദാസാ ഏതാ ഈ അലവലാതി"," ഇത്രക്ക് ചീപ്പാണോ ആര്ടിസ്റ് ബേബി"," ഒരിച്ചിരി ഉളുപ്പ്"," ഇവിടരുമില്ലേ ഇതൊന്ന് പറഞ്ഞു ചിരിയ്ക്കാൻ"," ദേ വന്നിരിക്കുന്നു നിന്റെ മോൻ"," അഹ് ബെസ്റ്റ്"," അന്തസ് വേണമെടാ അന്തസ്"," എന്തോന്നടേയ് ഇത്"," എന്താടോ നന്നാവാത്തെ"," യ്യോ ദാരിദ്ര്യം"]
+
+    }
+
+]
+
+
+
+// myApp=[
+//     {
+//     question:'भारत में 2 सर्वोच्च शौर्य पुरस्कार है',
+//     options:['परमवीर चक्र','परमवीर चक्र व महावीर चक्र','परमवीर चक्र व वीर चक्र ','अशोक चक्र व महावीर चक्र'],
+//     answer:'A',
+//     description:"hgygugftdbjkjjhfdccgcvgcg"
+//     }
+// ]
+
+
+function generateRandomQuestion(){
+
+    const randomNumber=Math.floor(Math.random() * myApp.length);
+   let hitDuplicate=0;
+   if(myArray.length==myApp.length){
+    hideretry();
+    document.getElementById("question").classList.add("hide");
+    document.getElementById("questions").innerHTML =myApp.length
+    document.getElementById("attempt").innerHTML =qn;
+    document.getElementById("correct").innerHTML =correctQn;
+    document.getElementById("wrong").innerHTML =wrongQn;    
+    document.getElementById("markSheet").classList.remove("hide");
+
+     
+   }
+   else if(myArray.length == 0){
+        questionIndex=randomNumber;
+    }
+    else{
+        for(let i=0; i<myArray.length; i++){
+            if(randomNumber == myArray[i]){
+                //if duplicate found
+                hitDuplicate=1;
+                
+            }
+        }
+        if(hitDuplicate == 1){
+            generateRandomQuestion();
+            return;
+        }
+        else{
+            questionIndex=randomNumber;
+        }
+    }
+    
+    myArray.push(randomNumber);    
+    load();
+    
+}
+    
+   function load() {
+    
+
+
+    enable()
+    qn =qn+1;
+    document.getElementById("questionText").innerHTML= myApp[questionIndex].question;
+    document.getElementById("A").innerHTML= myApp[questionIndex].options[0];
+    document.getElementById("B").innerHTML= myApp[questionIndex].options[1];
+    document.getElementById("C").innerHTML= myApp[questionIndex].options[2];
+    document.getElementById("D").innerHTML= myApp[questionIndex].options[3];
+
+
+   }
+    
+    
+    
+   document.getElementById("A").addEventListener("click",checkA);
+   document.getElementById("B").addEventListener("click",checkB);
+   document.getElementById("C").addEventListener("click",checkC);
+   document.getElementById("D").addEventListener("click",checkD);
+
+   function checkA(){
+    disable()
+    if(myApp[questionIndex].answer=="A"){
+ 
+     document.getElementById(myApp[questionIndex].answer).classList.add("correct");
+     correct();
+ 
+    }else{
+      document.getElementById(myApp[questionIndex].answer).classList.add("correct");
+      document.getElementById("A").classList.add("wrong");
+      wrong();
+ 
+    }
+
+    document.getElementById("userAnswer").classList.remove("hide");
+    document.getElementById("userAns").innerHTML = myApp[questionIndex].options[0];
+
+
+    
+   }
+
+   function checkB(){
+    disable()
+
+    if(myApp[questionIndex].answer=="B"){
+        
+     document.getElementById(myApp[questionIndex].answer).classList.add("correct");
+     correct();
+ 
+    }else{
+      document.getElementById(myApp[questionIndex].answer).classList.add("correct");
+      document.getElementById("B").classList.add("wrong");
+      wrong();
+ 
+    }
+    document.getElementById("userAnswer").classList.remove("hide");
+    document.getElementById("userAns").innerHTML = myApp[questionIndex].options[1];
+   }
+
+
+
+   function checkC(){
+    disable()
+
+    if(myApp[questionIndex].answer=="C"){
+ 
+     document.getElementById(myApp[questionIndex].answer).classList.add("correct");
+     correct();
+ 
+    }else{
+      document.getElementById(myApp[questionIndex].answer).classList.add("correct");
+      document.getElementById("C").classList.add("wrong");
+      wrong();
+ 
+    }
+    document.getElementById("userAnswer").classList.remove("hide");
+    document.getElementById("userAns").innerHTML = myApp[questionIndex].options[2];
+   }
+
+
+   function checkD(){
+    disable()
+
+    if(myApp[questionIndex].answer=="D"){
+ 
+     document.getElementById(myApp[questionIndex].answer).classList.add("correct");
+     correct()
+ 
+    }else{
+      document.getElementById(myApp[questionIndex].answer).classList.add("correct");
+      document.getElementById("D").classList.add("wrong");
+      wrong();
+ 
+    }
+     document.getElementById("userAnswer").classList.remove("hide");
+    document.getElementById("userAns").innerHTML = myApp[questionIndex].options[3];
+   }
+
+
+   function wrong(){
+
+    
+     retryArray.push(myApp[questionIndex]);
+
+
+    wrongQn=wrongQn+1;
+    const wrong = Math.floor(Math.random() * troll[0].wrong.length);
+    document.getElementById("answerReplay").classList.remove("hide");
+    document.getElementById("response").innerHTML= "നിങ്ങൾ  തിരഞ്ഞെടുത്ത ഉത്തരം  <b style='color: red;'> തെറ്റാണ്</b>.<br>"+troll[0].wrong[wrong];
+   
+   }
+
+   function correct(){
+    correctQn =correctQn+1;
+    const correct = Math.floor(Math.random() * troll[0].correct.length);
+    document.getElementById("answerReplay").classList.remove("hide");
+    document.getElementById("response").innerHTML= "നിങ്ങൾ  തിരഞ്ഞെടുത്ത ഉത്തരം  <b style='color: green;'>ശരിയാണ്</b>.<br>"+troll[0].correct[correct];
+
+   }
+
+   document.getElementById("next").addEventListener("click",next);
+
+   function next(){
+    document.getElementById("answerReplay").classList.add("hide");
+    document.getElementById("userAnswer").classList.add("hide");
+    generateRandomQuestion();
+    document.getElementById("A").className = "";
+    document.getElementById("B").className = "";
+    document.getElementById("C").className = "";
+    document.getElementById("D").className = "";
+
+  
+
+   }
+
+   document.getElementById("end").addEventListener("click",end);
+
+function end(){    
+    hideretry();
+    document.getElementById("answerReplay").classList.add("hide");
+    document.getElementById("userAnswer").classList.add("hide");
+    document.getElementById("question").classList.add("hide");
+    document.getElementById("questions").innerHTML =myApp.length
+    document.getElementById("attempt").innerHTML =qn;
+    document.getElementById("correct").innerHTML =correctQn;
+    document.getElementById("wrong").innerHTML =wrongQn;    
+    document.getElementById("markSheet").classList.remove("hide");
+
+}
+
+function disable(){
+    document.getElementById("A").disabled=true;
+    document.getElementById("B").disabled=true;
+    document.getElementById("C").disabled=true;
+    document.getElementById("D").disabled=true;
+
+}
+function enable(){
+    document.getElementById("A").disabled=false;
+    document.getElementById("B").disabled=false;
+    document.getElementById("C").disabled=false;
+    document.getElementById("D").disabled=false;
+
+}
+function notNow(){
+    var name = document.getElementById("input").value;
+    document.getElementById("userReplay").setAttribute("class","hide");
+    document.getElementById("rules").setAttribute("class","hide");
+    document.getElementById("inputSection").setAttribute("class","hide");
+    // document.getElementById("name").setAttribute("class","hide");
+    document.getElementById("troll").setAttribute("class","hide");
+    document.getElementById("name").classList.remove("hide");
+    document.getElementById("payment").classList.remove("hide");
+    
+
+    document.getElementById("nameText").innerHTML = "Hi <b>"+name+"</b> ഒത്തിരി പേരെ പഠിപ്പിച്ചു തളർനിരിക്കുവാണ്  അപ്പോഴാണ് ഒരു തമാശ. വന്ന സ്ഥിതിക്ക് ഒരു ചോദ്യമെങ്കിലും നോക്കാമായിരുന്നു. 😪<br><b>To restart please refresh the page</b>";
+    
+
+}
+console.log("😘 Project is under developement");
+
+function retry(){
+    document.getElementById("markSheet").classList.add("hide");
+    document.getElementById("question").classList.remove("hide");
+         questionIndex =0;
+         myApp = retryArray;
+         myArray=[];
+         retryArray=[];
+         correctQn =0;
+         wrongQn=0;
+         qn=0;
+  
+    document.getElementById("A").className = "";
+    document.getElementById("B").className = "";
+    document.getElementById("C").className = "";
+    document.getElementById("D").className = "";
+         generateRandomQuestion();
+}
+
+function hideretry(){
+    if(retryArray.length=="0"){
+        document.getElementById("retry").classList.add("hide");
+      }else{
+        document.getElementById("retry").classList.remove("hide");
+
+      }
+}
+
+function restart(){
+    
+    document.getElementById("markSheet").classList.add("hide");
+    document.getElementById("question").classList.remove("hide");
+         questionIndex =0;
+         myApp = restartArray;
+         myArray=[];
+         retryArray=[];
+         correctQn =0;
+         wrongQn=0;
+         qn=0;
+   
+    document.getElementById("A").className = "";
+    document.getElementById("B").className = "";
+    document.getElementById("C").className = "";
+    document.getElementById("D").className = "";
+         generateRandomQuestion();
+
+}
+</script>
+<script>
+    myApp=[
+  
+  {
+      "question": "സമ്പത്തിനെ പറ്റിയുള്ള പഠനശാഖ ഏത് പേരിൽ അറിയപ്പെടുന്നു",
+      "options": [
+          "കനോല ജി",
+          "അഫ്നോളജി",
+          "എംമോളജി",
+          "ജനോട്ടോളജി"
+      ],
+      "answer": "B"
+  },
+  {
+      "question": "ജൈവകൃഷിയുടെ ഉപജ്ഞാതാവ്",
+      "options": [
+          "ഫുക്കുവോക്ക",
+          "എം എസ് സ്വാമിനാഥൻ",
+          "ആൽബർട്ട് ഹോവാർഡ്",
+          "അലക്സാണ്ടർ നേവു"
+      ],
+      "answer": "C"
+  },
+  {
+      "question": "ഹോർത്തൂസ് മലബാറിക്കസ് എന്ന ഗ്രന്ഥം ഏത് രാജ്യക്കാരുടെ സംഭാവനയാണ്",
+      "options": [
+          "ഫ്രഞ്ചുകാർ",
+          "ഡച്ചുകാർ",
+          "ബ്രിട്ടീഷുകാർ",
+          "പോർച്ചുഗീസുകാർ"
+      ],
+      "answer": "B"
+  },
+  {
+      "question": "മാർഗദർശിയായ ഇംഗ്ലീഷുകാരൻ എന്ന് വിശേഷിപ്പിക്കുന്നത് ആരെ",
+      "options": [
+          "കീലിംഗ്",
+          "ചാൾസ് മിഡ്",
+          "മാസ്റ്റർ റാൽഫിച്ച്",
+          "അലക്സാണ്ടർ"
+      ],
+      "answer": "C"
+  },
+  {
+      "question": "വാസ്കോഡഗാമ മൂന്നാം തവണ കേരളത്തിൽ വന്ന ഏതു വർഷം",
+      "options": [
+          "1524",
+          "1538",
+          "1528",
+          "1534"
+      ],
+      "answer": "A"
+  },
+  {
+      "question": "ചട്ടമ്പിസ്വാമികളുടെ കുട്ടിക്കാലത്തെ പേര്",
+      "options": [
+          "മാധവൻ",
+          "രാമൻപിള്ള",
+          "ഈശ്വര സ്വാമി",
+          "കുഞ്ഞൻപിള്ള"
+      ],
+      "answer": "D"
+  },
+  {
+      "question": "സ്വദേശാഭിമാനി പത്രം ആരുടെ ഉടമസ്ഥതയിലുള്ള ആയിരുന്നു",
+      "options": [
+          "കെ രാമകൃഷ്ണപിള്ള",
+          "വക്കം അബ്ദുൽ ഖാദർ മൗലവി",
+          "പട്ടം താണുപിള്ള",
+          "പി കൃഷ്ണപിള്ള"
+      ],
+      "answer": "B"
+  },
+  {
+      "question": "റോമൻ ദേവതയായ വീനസിന്റെ  പേരിലറിയപ്പെടുന്ന ഗ്രഹം",
+      "options": [
+          "ഭൂമി",
+          "ചൊവ്വ",
+          "വ്യാഴം",
+          "ശുക്രൻ"
+      ],
+      "answer": "D"
+  },
+  {
+      "question": "മനുഷ്യന്റെ നട്ടെല്ലിലെ കശേരുക്കളുടെ എണ്ണം",
+      "options": [
+          "38",
+          "18",
+          "33",
+          "23"
+      ],
+      "answer": "C"
+  },
+  {
+      "question": "അരിയുടെ തവിടിൽ അടങ്ങിയിരിക്കുന്ന വിറ്റാമിൻ",
+      "options": [
+          "വിറ്റാമിൻ B",
+          "വിറ്റാമിൻ K",
+          "വിറ്റാമിൻ C",
+          "വിറ്റാമിൻ E"
+      ],
+      "answer": "A"
+  },
+  {
+      "question": "ചൈനീസ് പൊട്ടറ്റോ എന്നറിയപ്പെടുന്ന കാർഷിക വിള",
+      "options": [
+          "തക്കാളി",
+          "കേബേജ്",
+          "ബീറ്റ്റൂട്ട്",
+          "കൂർക്ക"
+      ],
+      "answer": "D"
+  },
+  {
+      "question": "ഇന്ത്യയിൽ നിന്ന് ഏത് വിദേശ പട്ടണത്തിലേക്ക് ആദ്യമായി I.S.D ഫോൺ ലഭ്യമായത്",
+      "options": [
+          "ന്യൂയോർക്ക്",
+          "ലണ്ടൻ",
+          "പാരിസ്",
+          "മോസ്കോ"
+      ],
+      "answer": "B"
+  },
+  {
+      "question": "എയ്ഡ്സ് വൈറസ്  കണ്ടുപിടിച്ച ശാസ്ത്രജ്ഞൻ",
+      "options": [
+          "അലൻ ഫ്ലോറി",
+          "ഐസക് അസിമോവ്",
+          "ലൂക്ക് മോണ്ടജിനിയർ ",
+          "ഡേവിഡ് ഡകാർ"
+      ],
+      "answer": "C"
+  },
+  {
+      "question": "ബ്രഹ്മപുത്ര നദി അരുണാചൽ പ്രദേശിൽ പ്രവേശിക്കുമ്പോൾ ഏത് പേരിൽ അറിയപ്പെടുന്നു",
+      "options": [
+          "ലുഹിത്ത്",
+          "ഭഗീരഥി",
+          "ഗോമതി",
+          "ദിഹാങ്"
+      ],
+      "answer": "D"
+  },
+  {
+      "question": "നാഗാർജുനസാഗർ അണക്കെട്ട് ഏത് നദിയിലാണ് നിർമ്മിച്ചിരിക്കുന്നത്",
+      "options": [
+          "കോസി",
+          "ഗോദാവരി",
+          "കൃഷ്ണ",
+          "സത്‌ലജ്"
+      ],
+      "answer": "C"
+  },
+  {
+      "question": "ദൂരദർശൻ പ്രവർത്തനം ആരംഭിച്ചത് എന്നാണ്",
+      "options": [
+          "1956 നവംബർ 11",
+          "1960 ഡിസംബർ 14",
+          "1966 ജനുവരി 11",
+          "1959 സെപ്റ്റംബർ 15"
+      ],
+      "answer": "D"
+  },
+  {
+      "question": "ഏതു സാമ്രാജ്യത്തിന്റെ  തലസ്ഥാനമാണ് മുഹമ്മദ് ബിൻ തുഗ്ലക്ക് ഡൽഹിയിൽ നിന്നും ദേവഗിരി ലേക്ക് മാറ്റിയത്",
+      "options": [
+          "ഡക്കാൺ",
+          "ഗസ്ന ",
+          "സുൽത്താനേറ്റ്",
+          "ഹോയ്സാല"
+      ],
+      "answer": "C"
+  },
+  {
+      "question": "ശിവജിയുടെ ആത്മീയ ഗുരു",
+      "options": [
+          "തുളസിദാസ്",
+          "സൂർദാസ്",
+          "കബീർദാസ്",
+          "രാംദാസ്"
+      ],
+      "answer": "D"
+  },
+  {
+      "question": "ജാലിയൻവാലാബാഗ് ഇന്ത്യയിൽ ഏത് സംസ്ഥാനത്ത് സ്ഥിതി ചെയ്യുന്നു",
+      "options": [
+          "മധ്യപ്രദേശ്",
+          "ഉത്തർപ്രദേശ്",
+          "പഞ്ചാബ്",
+          "മഹാരാഷ്ട്ര"
+      ],
+      "answer": "C"
+  },
+  {
+      "question": "വിദേശ കാര്യങ്ങൾ ആഭ്യന്തര കാര്യങ്ങളെ പിന്തുടരും എന്ന് പ്രസ്താവിച്ചത്",
+      "options": [
+          "ഗാന്ധിജി",
+          "നെഹ്റു",
+          "അംബേദ്കർ",
+          "സുഭാഷ് ചന്ദ്ര ബോസ്"
+      ],
+      "answer": "B"
+  },
+  {
+      "question": "ആദ്യത്തെ ചേരിചേരാ സമ്മേളനം എവിടെ വച്ച് നടന്നു",
+      "options": [
+          "ബന്ധുങ് ",
+          "ഡൽഹി",
+          "കെയ്റോ",
+          "ബെൽഗ്രേഡ്"
+      ],
+      "answer": "D"
+  },
+  {
+      "question": "1857-ലെ ഒന്നാം സ്വാതന്ത്ര്യ സമര കാലഘട്ടത്തിൽ ഇന്ത്യയിലെ ഗവർണർ ജനറൽ ആരായിരുന്നു",
+      "options": [
+          "ഇർവിൻ",
+          "കാനിംഗ്",
+          "വെല്ലസി",
+          "ഡൽഹൗസി"
+      ],
+      "answer": "B"
+  },
+  {
+      "question": "അന്ത്യോദയ ആദ്യം നടപ്പിലാക്കിയ ഇന്ത്യൻ സംസ്ഥാനം",
+      "options": [
+          "കേരളം",
+          "മഹാരാഷ്ട്ര",
+          "സിക്കിം",
+          "രാജസ്ഥാൻ"
+      ],
+      "answer": "D"
+  },
+  {
+      "question": "ആംനെസ്റ്റി ഇന്റർനാഷണൽ  ആസ്ഥാനം",
+      "options": [
+          "ന്യൂയോർക്ക്",
+          "ജനീവ",
+          "ലണ്ടൻ",
+          "ഹേഗ്"
+      ],
+      "answer": "C"
+  },
+    {
+        "question": "കൊങ്കൺ റെയിൽവേയുടെ ആസ്ഥാനം",
+        "options": [
+            "മംഗലാപുരം",
+            "ബാംഗ്ലൂർ",
+            "കരിംനഗർ",
+            "belapur"
+        ],
+        "answer": "D"
+    },
+    {
+        "question": "ഇന്ത്യയിലെ സജീവമായ അഗ്നിപർവതം സ്ഥിതിചെയ്യുന്നത് ദീപ് ",
+        "options": [
+            "ബാരൺ ദ്വീപ്",
+            "ലക്ഷദ്വീപ്",
+            "സത്പുര",
+            "ഇതൊന്നുമല്ല"
+        ],
+        "answer": "A"
+    },
+    {
+        "question": "ഏത് രാസവസ്തു കൊണ്ടാണ് പല്ല് നിർമിച്ചിരിക്കുന്നത്",
+        "options": [
+            "കാൽസ്യം കാർബണേറ്റ്",
+            "കാൽസ്യം ഫ്ലൂറൈഡ്",
+            "കാൽസ്യം ഫോസ്ഫേറ്റ്",
+            "കാൽസ്യം ഓക്സൈഡ്"
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "ഇന്ത്യയുടെ കിഴക്കേ തീരം അറിയപ്പെടുന്നത്",
+        "options": [
+            "കൊങ്കൺ തീരം",
+            "മലബാർ തീരം ",
+            "കോറമാൻഡൽ തീരം",
+            "ഇതൊന്നുമല്ല"
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "അയോദ്ധ്യ പട്ടണം സ്ഥിതിചെയ്യുന്നത് ഏത് നദിയുടെ തീരത്താണ്",
+        "options": [
+            "സബർമതി",
+            "താപ്തി",
+            "സരയൂ",
+            "മൂസി"
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "ഏറ്റവും കൂടുതൽ ജലസമ്പത്തുള്ള നദി",
+        "options": [
+            "ഗംഗ",
+            "യമുന",
+            "ബ്രഹ്മപുത്ര",
+            "കാവേരി"
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "ആനയുടെ ഹൃദയമിടിപ്പ് മിനിറ്റിൽ എത്ര തവണയാണ്",
+        "options": [
+            "120",
+            "72",
+            "140",
+            "25"
+        ],
+        "answer": "D"
+    },
+    {
+        "question": "ജനസംഖ്യ നയം പ്രഖ്യാപിച്ച വർഷം ഏത്",
+        "options": [
+            "1972",
+            "1976",
+            "1978",
+            "1981"
+        ],
+        "answer": "B"
+    },
+    {
+        "question": "ഭാഷ അടിസ്ഥാനത്തിൽ രൂപീകൃതമായ ആദ്യ സംസ്ഥാനം",
+        "options": [
+            "കേരളം",
+            "ആന്ധ്ര പ്രദേശ്",
+            "തമിഴ്നാട്",
+            "പഞ്ചാബ്"
+        ],
+        "answer": "B"
+    },
+    {
+        "question": "ശീത യുദ്ധത്തിന് അവസാനം കുറിച്ച ബർലിൻ ഭിത്തി തകർന്ന വർഷം",
+        "options": [
+            "1988",
+            "1989",
+            "1990",
+            "1901"
+        ],
+        "answer": "B"
+    },
+    {
+        "question": "ഗ്രാമീണ ബാങ്കുകളുടെ ശില്പി എന്നറിയപ്പെടുന്നത്",
+        "options": [
+            "അമർത്യസെൻ ",
+            "മുഹമ്മദ് യൂനുസ്",
+            "നോം ചോസ്കി",
+            "ഇതൊന്നുമല്ല"
+        ],
+        "answer": "B"
+    },
+    {
+        "question": "മനുഷ്യ തലയോട്ടിയിൽ എത്ര അസ്ഥികൾ ഉണ്ട്",
+        "options": [
+            "14",
+            "22",
+            "21",
+            "18"
+        ],
+        "answer": "B"
+    },
+    {
+        "question": "ലോക ഭൗമ ദിനം എന്ന്",
+        "options": [
+            "ഏപ്രിൽ 20",
+            "ഏപ്രിൽ 21",
+            "ഏപ്രിൽ 22",
+            "ഏപ്രിൽ 23"
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "ഖേൽരത്ന നേടിയ ആദ്യ വനിത",
+        "options": [
+            "അഞ്ജു ബേബി ജോർജ്",
+            "കെ സി ഏലമ്മ ",
+            "കർണം മല്ലേശ്വരി",
+            "കെ എം ബീനമോൾ. "
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "നീലയും മഞ്ഞയും പ്രകാശങ്ങൾ ഒരുമിച്ചു ചേർന്നാൽ കിട്ടുന്ന വർണ്ണം",
+        "options": [
+            "കറുപ്പ്",
+            "മജന്ത",
+            "വെള്ള",
+            "പിങ്ക്"
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "റിയാൽ ഏത് രാജ്യത്തെ കറൻസിയാണ്",
+        "options": [
+            "ഇന്തോനേഷ്യ",
+            "ഇറാക്ക്",
+            "ഇറാൻ",
+            "ലേബനൻ "
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "മൈ കൺട്രി മൈ ലൈഫ് എന്ന കൃതി രചിച്ചതാര്",
+        "options": [
+            "കുൽദീപ് നായർ",
+            "കെ ആർ നാരായണൻ",
+            "എൽ കെ അദ്വാനി",
+            "ഇതൊന്നുമല്ല"
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "ഇംഗ്ലീഷ് ചാനൽ നീന്തി കടന്ന ആദ്യ ഇന്ത്യൻ  വനിത",
+        "options": [
+            "ആരതി സാഹ",
+            "ആരതി ഗുപ്ത",
+            "ജിംഗോതോംബേ ",
+            "ഇതൊന്നുമല്ല "
+        ],
+        "answer": "A"
+    },
+    {
+        "question": "ഭരതനാട്യം ഏത് സംസ്ഥാനത്തിലെ തനത് നൃത്തരൂപമാണ്",
+        "options": [
+            "ഒറീസാ",
+            "കർണാടക",
+            "തമിഴ്നാട് ",
+            "കേരളം"
+        ],
+        "answer": "C"
+    },
+    {
+        "question": "ഇന്ത്യയിലെ ആദ്യത്തെ ബയോളജിക്കൽ പാർക്ക്",
+        "options": [
+            "തെന്മല",
+            "അഗസ്ത്യാർകൂടം",
+            "ബന്ദിപ്പൂർ",
+            "ജിം കോർബെറ്റ്"
+        ],
+        "answer": "B"
+    },
+      {
+          "question": "റിസർവ് ബാങ്ക് ഓഫ് ഇന്ത്യയുടെ ആസ്ഥാനം",
+          "options": [
+              "ഡൽഹി ",
+              "മുംബൈ",
+              "കൊൽക്കത്ത",
+              "ബാംഗ്ലൂർ"
+          ],
+          "answer": "B"
+      },
+      {
+          "question": "സൗരയൂഥത്തിലെ ഏറ്റവും വലിയ ചന്ദ്രൻ എന്നറിയപ്പെടുന്നത്",
+          "options": [
+              "ഗാനിമീഡ്",
+              "യൂറോപ്പ",
+              "അയോ",
+              "കാലിസ്റ്റോ"
+          ],
+          "answer": "A"
+      },
+      {
+          "question": "വന്ദേമാതരം ഇന്ത്യയുടെ ദേശീയ ഗീതമായി അംഗീകരിച്ച വർഷം",
+          "options": [
+              "1950",
+              "1947",
+              "1951",
+              "1956"
+          ],
+          "answer": "A"
+      },
+      {
+          "question": "ലോകത്തിൽ ഏറ്റവും അധികം സംസാരിക്കപ്പെടുന്ന ഭാഷ",
+          "options": [
+              "ഇംഗ്ലീഷ്",
+              "റഷ്യൻ",
+              "ഹിന്ദി",
+              "മാൻഡറിൻ"
+          ],
+          "answer": "D"
+      },
+      {
+          "question": "കൂടു കൂട്ടി മുട്ടയിടുന്ന ഒരേ ഒരു പാമ്പ്",
+          "options": [
+              "അണലി",
+              "രാജവെമ്പാല",
+              "മൂർഖൻ",
+              "ശംഖുവരയൻ"
+          ],
+          "answer": "B"
+      },
+      {
+          "question": "ഇന്ത്യൻ മിസൈൽ പദ്ധതിയുടെ പ്രൊജക്റ്റ് അഡ്വൈസർ ആയി സ്ഥാനമേറ്റ ആദ്യ വനിത",
+          "options": [
+              "കൽപ്പന ചൗള",
+              "സുനിതാ വില്യംസ്",
+              "കിരൺ ബേദി",
+              "ടെസി തോമസ്"
+          ],
+          "answer": "D"
+      },
+      {
+          "question": "കേരളത്തിലെ ഏറ്റവും വലിയ പീഠഭൂമി",
+          "options": [
+              "പീരുമേട്",
+              "വയനാട്",
+              "പാലക്കാട്",
+              "പത്തനംതിട്ട"
+          ],
+          "answer": "B"
+      },
+      {
+          "question": "ഇന്ത്യയിൽ ആദ്യമായി പഞ്ചായത്ത് രാജ് സംവിധാനം നടപ്പിലാക്കിയ സംസ്ഥാനം",
+          "options": [
+              "കേരളം",
+              "പശ്ചിമബംഗാൾ",
+              "ഗുജറാത്ത്",
+              "രാജസ്ഥാൻ"
+          ],
+          "answer": "D"
+      },
+      {
+          "question": "ഇന്ത്യൻ ഭരണഘടനയിൽ വിദ്യാഭ്യാസം ഉൾപ്പെടുന്ന ലിസ്റ്റ്",
+          "options": [
+              "യൂണിയൻ ലിസ്റ്റ്",
+              "സംസ്ഥാന ലിസ്റ്റ്",
+              "കൺകറന്റ് ലിസ്റ്റ്",
+              "ഇവയൊന്നുമല്ല"
+          ],
+          "answer": "C"
+      },
+      {
+          "question": "ഓസോൺ കവചം സ്ഥിതിചെയ്യുന്നത് അന്തരീക്ഷപാളി",
+          "options": [
+              "ട്രോപോസ്ഫിയർ",
+              "മിസോസ്ഫിയർ",
+              "സ്ട്രാറ്റൊസ്‌ഫിയർ ",
+              "തെർമോസ്ഫിയർ"
+          ],
+          "answer": "C"
+      },
+      {
+          "question": "വിദ്യാഭ്യാസ അവകാശ നിയമം നിലവിൽ വന്നത്",
+          "options": [
+              "2010 ഏപ്രിൽ 1 ",
+              "2010 സെപ്റ്റംബർ 5",
+              "2009 ആഗസ്ത് 15",
+              "2010 ജനുവരി 1"
+          ],
+          "answer": "A"
+      },
+      {
+          "question": "ആണവ ശേഷി ഉള്ള ആദ്യ ഇന്ത്യൻ മുങ്ങി കപ്പൽ ",
+          "options": [
+              "വിക്രമാദിത്യ",
+              "വിരാട്",
+              "അരിഹിന്ദ് ",
+              "നിഷാന്ത്"
+          ],
+          "answer": "C"
+      },
+      {
+          "question": "കടലിൽ എണ്ണ കലർന്നുണ്ടാകുന്ന മലിനീകരണം തടയാൻ ഉപയോഗിക്കുന്ന ജനിതക ബാക്ടീരിയ",
+          "options": [
+              "ലെപ്റ്റോസ്പൈറ",
+              "എച്ച് വൺ എൻ വൺ",
+              "ക്ലോസ്ട്രിഡിയം ടെറ്റനി",
+              "സൂപ്പർബഗ്"
+          ],
+          "answer": "D"
+      },
+      {
+          "question": "ലോക തണ്ണീർത്തട ദിനം",
+          "options": [
+              "ഫെബ്രുവരി 2",
+              "ജൂൺ 5",
+              "മെയ് 1",
+              "മാർച്ച് 21"
+          ],
+          "answer": "A"
+      },
+      {
+          "question": "തിരുവിതാംകൂറിലെ ആധുനിക അത്ഭുതം എന്ന് ഗാന്ധിജി വിശേഷിപ്പിച്ച സംഭവം",
+          "options": [
+              "വൈക്കം സത്യാഗ്രഹം",
+              "ക്ഷേത്രപ്രവേശന വിളംബരം",
+              "അരുവിപ്പുറം പ്രതിഷ്ഠ",
+              "നിവർത്തന പ്രക്ഷോഭം"
+          ],
+          "answer": "B"
+      },
+        {
+            "question": "താഴെപ്പറയുന്നവയിൽ സൈലന്റ് വാലിയിലൂടെ ഒഴുകുന്ന നദി",
+            "options": [
+                "പെരിയാർ",
+                "പമ്പാനദി",
+                "കുന്തിപ്പുഴ",
+                "മഹാനദി"
+            ],
+            "answer": "C"
+        },
+        {
+            "question": "രാസവസ്തുക്കളുടെ രാജാവ് ഈ പേരിലറിയപ്പെടുന്നത്",
+            "options": [
+                "സൾഫ്യൂരിക് ആസിഡ്",
+                "ഹൈഡ്രോക്ലോറിക് ആസിഡ്",
+                "അസറ്റിക് ആസിഡ്",
+                "സിട്രിക്കാസിഡ്"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "ഇന്ത്യയുടെ ആദ്യ തദ്ദേശീയ റഡാർ ഇമേജിങ് ഉപഗ്രഹം ഏത്",
+            "options": [
+                "കാർട്ടോസാറ്റ് വൺ",
+                "മെറ്റ് സാറ്റ് വൺ",
+                "റിസാറ്റ് വൺ",
+                "ഓഷ്യൻ സാറ്റ് വൺ"
+            ],
+            "answer": "C"
+        },
+        {
+            "question": "ഏതു വർഷമാണ് ഇന്ത്യൻ രൂപയുടെ പുതിയ ചിഹ്നം ഔദ്യോഗികമായി അംഗീകരിക്കപ്പെട്ടത്",
+            "options": [
+                "2009",
+                "2008",
+                "2011",
+                "2010"
+            ],
+            "answer": "D"
+        },
+        {
+            "question": "ആരുടെ ആത്മകഥയാണ് കുമ്പസാരങ്ങൾ",
+            "options": [
+                "റൂസോ",
+                "ലെനിൻ ",
+                "കെന്നഡി",
+                "കാറൽമാക്സ്"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "ചരിത്രപ്രസിദ്ധമായ കയ്യൂർ സമരം ഏതു വർഷമായിരുന്നു",
+            "options": [
+                "1921",
+                "1941",
+                "1931",
+                "1951"
+            ],
+            "answer": "B"
+        },
+        {
+            "question": "ഇന്ത്യയിലെ ഏറ്റവും വലിയ കണ്ടൽക്കാടുകൾ ഒരു കടുവ സംരക്ഷണ കേന്ദ്രം കൂടിയാണ് ഇത് ഏത് സംസ്ഥാനത്താണ് കാണപ്പെടുന്നത്",
+            "options": [
+                "തമിഴ്നാട്",
+                "ഒറീസ",
+                "രാജസ്ഥാൻ",
+                "പശ്ചിമബംഗാൾ"
+            ],
+            "answer": "D"
+        },
+        {
+            "question": "ഒളിമ്പിക്സ് ചിഹ്നത്തിലെ അഞ്ചു വളയങ്ങളിൽ നീല വളയം ഏത് ഭൂഖണ്ഡത്തെ സൂചിപ്പിക്കുന്നു",
+            "options": [
+                "ഓസ്ട്രേലിയ",
+                "യൂറോപ് ",
+                "അമേരിക്ക",
+                "ഏഷ്യ"
+            ],
+            "answer": "B"
+        },
+        {
+            "question": "ബംഗ്ലാദേശിലെ ദേശീയ കായിക വിനോദം ഏത്",
+            "options": [
+                "ഹോക്കി",
+                "ക്രിക്കറ്റ്",
+                "കബഡി",
+                "അമ്പെയ്ത്ത്"
+            ],
+            "answer": "C"
+        },
+        {
+            "question": "ബ്ലാക്ക് പഗോഡ എന്നറിയപ്പെടുന്ന സൂര്യ ക്ഷേത്രം സ്ഥിതി ചെയ്യുന്നത് എവിടെ",
+            "options": [
+                "കർണാടകം",
+                "ഒറീസ",
+                "മധ്യപ്രദേശ്",
+                "ഉത്തർപ്രദേശ്"
+            ],
+            "answer": "B"
+        },
+        {
+            "question": "പ്രത്യുല്പാദന വ്യവസ്ഥയുടെ ശരിയായ പ്രവർത്തനത്തിന് ആവശ്യമായ വിറ്റാമിൻ ഏത്",
+            "options": [
+                "വിറ്റാമിൻ എ",
+                "വിറ്റാമിൻ d",
+                "വിറ്റാമിൻ k",
+                "വിറ്റാമിൻ e "
+            ],
+            "answer": "D"
+        },
+        {
+            "question": "1936 നവംബർ 12ന് ചരിത്രപ്രസിദ്ധമായ ക്ഷേത്രപ്രവേശന വിളംബരം പുറപ്പെടുവിച്ച ഭരണാധികാരി",
+            "options": [
+                "ശ്രീ ചിത്തിര തിരുനാൾ",
+                "ശ്രീമൂലം തിരുനാൾ",
+                "സ്വാതിതിരുനാൾ",
+                "ആയില്യം തിരുനാൾ"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "കാനിസ് ഫെമിലിയാരിസ് ഏത് ജീവിയുടെ ശാസ്ത്രീയ നാമമാണ്",
+            "options": [
+                "നായ",
+                "പൂച്ച",
+                "സിംഹം",
+                "കടുവ"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "കേന്ദ്ര നാഡീ വ്യവസ്ഥയിലെ ന്യൂറോണുകൾ നശിക്കുന്നത് മൂലമോ സെറിബ്രൽ കോർട്ടക്സിലെ പ്രവർത്തനം തകരാറിലാകുന്ന അതിനാൽ ഉണ്ടാകുന്ന രോഗം",
+            "options": [
+                "പേവിഷ ബാധ",
+                "പാർക്കിൻസൺസ് രോഗം",
+                "അൽഷിമേഴ്സ്",
+                "അപസ്മാരം"
+            ],
+            "answer": "C"
+        },
+        {
+            "question": "പ്രപഞ്ചത്തിന് കൊളംബസ് എന്നറിയപ്പെടുന്ന ബഹിരാകാശ സഞ്ചാരി",
+            "options": [
+                "രാകേഷ് ശർമ",
+                "യൂറി ഗഗാറിൻ",
+                "ഗലീലിയോ",
+                "നീൽ ആംസ്ട്രോങ്ങ്"
+            ],
+            "answer": "B"
+        },{
+          "question": "1961 പ്രഥമ ചേരിചേരാ സമ്മേളനം നടന്ന സ്ഥലം",
+          "options": [
+              "ബന്തുങ് ",
+              "ബെൽഗ്രേഡ്",
+              "ഹവാന",
+              "കെയ്റോ "
+          ],
+          "answer": "B"
+      },
+        {
+            "question": "ഷെന്തുരുണി വന്യജീവി സങ്കേതം ഏതു ജില്ലയിൽ സ്ഥിതി ചെയ്യുന്നു",
+            "options": [
+                "കൊല്ലം",
+                "വയനാട്",
+                "പാലക്കാട്",
+                "ഇടുക്കി"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "ചിങ്ങം 1 ആചരിക്കുന്നത്",
+            "options": [
+                "നേവി ദിനം",
+                "വനിതാദിനം",
+                "കർഷകദിനം",
+                "രക്തസാക്ഷിദിനം"
+            ],
+            "answer": "C"
+        },
+        {
+            "question": "മലബാറിലെ വിദ്യാഭ്യാസ വ്യവസായിക പുരോഗതിക്ക് നേതൃത്വം കൊടുത്ത മിഷനറി സംഘടന",
+            "options": [
+                "എൽഎംഎസ്",
+                "ബി ഈ എം",
+                "സിഎംഎസ്",
+                "ഈശോസഭ"
+            ],
+            "answer": "B"
+        },
+        {
+            "question": "ഇന്ത്യൻ നാഷണൽ കോൺഗ്രസിന്റെ അധ്യക്ഷൻ ആയ ആദ്യ മലയാളി",
+            "options": [
+                "കെ മാധവൻ നായർ",
+                "കെ പി കേശവമേനോൻ",
+                "സർ സി ശങ്കരൻനായർ",
+                "കെ കേളപ്പൻ"
+            ],
+            "answer": "C"
+        },
+        {
+            "question": "കേരളത്തിൽ പ്രകൃതിയെ തന്നെ വളരുന്ന ചന്ദനക്കാടുകൾ കാണപ്പെടുന്ന സ്ഥലം",
+            "options": [
+                "മറയൂർ",
+                "പറമ്പിക്കുളം",
+                "ഇരവികുളം",
+                "സൈലന്റ് വാലി"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "ഇന്ത്യയുടെ വടക്കേ അറ്റം അറിയപ്പെടുന്നത്",
+            "options": [
+                "ഇന്ദിരാ കോൾ",
+                "ഇന്ദിരാ പോയിന്റ്",
+                "റാൻ ഓഫ് കച്ച്",
+                "കോറി ക്രിക്ക"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "ഹിരാക്കുഡ് അണക്കെട്ട് സ്ഥിതി ചെയ്യുന്ന സംസ്ഥാനം",
+            "options": [
+                "പഞ്ചാബ്",
+                "ഒറീസാ",
+                "ബീഹാർ",
+                "മധ്യപ്രദേശ്"
+            ],
+            "answer": "B"
+        },
+        {
+            "question": "എണ്ണൂർ തുറമുഖം സ്ഥിതി ചെയ്യുന്ന സംസ്ഥാനം",
+            "options": [
+                "ഗുജറാത്ത്",
+                "മഹാരാഷ്ട്ര",
+                "ആന്ധ്ര പ്രദേശ്",
+                "തമിഴ്നാട്"
+            ],
+            "answer": "D"
+        },
+        {
+            "question": "വിജയനഗര സാമ്രാജ്യം സന്ദർശിച്ച വെനീഷ്യൻ സഞ്ചാരി",
+            "options": [
+                "നിക്കോളോകോണ്ടി",
+                "അബ്ദുൽ റസാഖ്",
+                "മാർക്കോ പോളോ",
+                "ഇബിനു ബത്തൂത്ത"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "രാജ്യത്തിന് സ്വയംഭരണം വേണമെന്ന ആവശ്യം ആദ്യം മുന്നോട്ട് വച്ച ധീര ദേശാഭിമാനി",
+            "options": [
+                "ബാലഗംഗാധര തിലകൻ",
+                "മാഡം കാമ",
+                "ശ്രീമതി ആനിബസെന്റ്",
+                "ജവഹർലാൽ നെഹ്റു"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "1930 മുതൽ ജനുവരി 26 ഇന്ത്യൻ സ്വാതന്ത്ര്യ ദിനമായി ആചരിക്കാൻ തീരുമാനിച്ച കോൺഗ്രസ് സമ്മേളനം",
+            "options": [
+                "ലാഹോർ",
+                "സൂറത്ത്",
+                "കൽക്കത്ത",
+                "ലക്നൗ"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "ശാശ്വത ഭൂനികുതി വ്യവസ്ഥ നടപ്പിലാക്കിയ വൈസ്രോയി",
+            "options": [
+                "കാനിംഗ് പ്രഭു",
+                "കോൺവാലിസ്",
+                "വെല്ലസി",
+                "ഡൽഹൗസി"
+            ],
+            "answer": "B"
+        },
+        {
+            "question": "ആനന്ദമഠം രചിച്ചത്",
+            "options": [
+                "സുബ്രഹ്മണ്യ ഭാരതി",
+                "രവീന്ദ്രനാഥ ടാഗോർ",
+                "രാജാറാം മോഹൻ റോയ്",
+                "ബങ്കിം ചന്ദ്ര ചാറ്റർജി"
+            ],
+            "answer": "D"
+        },
+        {
+            "question": "ഇന്ത്യൻ മിസൈലുകളുടെ പിതാവ് എന്നറിയപ്പെടുന്ന ശാസ്ത്രജ്ഞൻ",
+            "options": [
+                "ഹോമി ജെ ബാബ",
+                "വിക്രം സാരാഭായി",
+                "എപിജെ അബ്ദുൽ കലാം",
+                "സി വി രാമൻ"
+            ],
+            "answer": "C"
+        },
+        {
+            "question": "1961 പ്രഥമ ചേരിചേരാ സമ്മേളനം നടന്ന സ്ഥലം",
+            "options": [
+                "ബന്തുങ് ",
+                "ബെൽഗ്രേഡ്",
+                "ഹവാന",
+                "കെയ്റോ "
+            ],
+            "answer": "B"
+        },
+          {
+              "question": "ചുവടെ കൊടുത്തതിൽ മഞ്ഞിന്റെ വാസസ്ഥലം എന്നറിയപ്പെടുന്നത് ",
+              "options": [
+                  "ഹിമാദ്രി",
+                  "ഹിമാലയം",
+                  "മണാലി",
+                  "മസൂറി"
+              ],
+              "answer": "B"
+          },
+          {
+              "question": "ഇന്ത്യയിലെ ഏറ്റവും ഉയരം കൂടിയ കൊടുമുടി",
+              "options": [
+                  "മൗണ്ട് k2",
+                  "കാഞ്ചൻ ജംഗ",
+                  "നന്ദാദേവി",
+                  "ഹിമാദ്രി"
+              ],
+              "answer": "A"
+          },
+          {
+              "question": "ഹിമാലയത്തിന്റെ വടക്കേ അറ്റത്തുള്ള പർവ്വതനിര",
+              "options": [
+                  "ഹിമാദ്രി",
+                  "ഹിമാചൽ",
+                  "ശിവാലിക്",
+                  "കാശ്മീർ താഴ്വര"
+              ],
+              "answer": "A"
+          },
+          {
+              "question": "സഞ്ചാരികളുടെ സ്വർഗം എന്നറിയപ്പെടുന്നത് ",
+              "options": [
+                  "കുളു",
+                  "മസൂറി",
+                  "കൊടൈക്കനാൽ",
+                  "കാശ്മീർ താഴ്വര"
+              ],
+              "answer": "D"
+          },
+          {
+              "question": "സുഖവാസ കേന്ദ്രങ്ങളുടെ റാണി എന്നറിയപ്പെടുന്നത്",
+              "options": [
+                  "കൊടൈക്കനാൽ",
+                  "കുളു",
+                  "മസൂറി",
+                  "കാശ്മീർ താഴ്വര"
+              ],
+              "answer": "C"
+          },
+          {
+              "question": "സുഖവാസ കേന്ദ്രങ്ങളുടെ രാജ്ഞി എന്നറിയപ്പെടുന്നത്",
+              "options": [
+                  "കൊടേക്കനാൽ",
+                  "കുളു",
+                  "മസൂറി",
+                  "കാശ്മീർ താഴ്വര"
+              ],
+              "answer": "A"
+          },
+          {
+              "question": "ശിവന്റെ തിരുമുടി എന്ന് അർത്ഥം വരുന്ന പർവ്വതനിര",
+              "options": [
+                  "ഹിമാദ്രി",
+                  "ഹിമാചൽ",
+                  "സിവാലിക്",
+                  "ഹിമാലയം"
+              ],
+              "answer": "C"
+          },
+          {
+              "question": "ഹിമാലയത്തിന്റെ നട്ടെല്ല് എന്നറിയപ്പെടുന്നത്",
+              "options": [
+                  "ഹിമാചൽ",
+                  "സിവാലിക്",
+                  "റോഹ്ടാങ് ",
+                  "ഹിമാദ്രി"
+              ],
+              "answer": "D"
+          },
+          {
+              "question": "ലോകത്തിലെ ഏറ്റവും ഉയരമുള്ള കൊടുമുടി",
+              "options": [
+                  "എവറസ്റ്റ്",
+                  "ഗോഡ്വിൻ ആസ്റ്റിൻ",
+                  "നന്ദാദേവി",
+                  "കാഞ്ചൻ ജംഗ"
+              ],
+              "answer": "A"
+          },
+          {
+              "question": "ഗംഗാ സമുദ്രവുമായി ചേർന്നുകിടക്കുന്ന ഹിമാലയത്തിലെ ഭാഗം",
+              "options": [
+                  "സിവാലിക്",
+                  "ഡെറാഡൂൺ",
+                  "ഹിമാദ്രി",
+                  "ഹിമാചൽ"
+              ],
+              "answer": "A"
+          },
+            {
+                "question": "ഉത&#3405;തര&#3399;ന&#3405;ത&#3405;യയ&#3391;ൽ സ&#3394;ര&#3405;യ&#3390;ഘ&#3390;തത&#3405;ത&#3391;ന&#3405;  ക&#3390;രണമ&#3390;ക&#3393;ന&#3405;ന വരണ&#3405;ട ഉഷ&#3405;ണക&#3405;ക&#3390;റ&#3405;റ&#3405;:",
+                "options": [
+                    "ല&#3394;",
+                    "മ&#3390;&#3330;ഗ&#3403; ഷവർ",
+                    "ന&#3403;ർവ&#3398;സ&#3405;റ&#3405;റർ",
+                    "ച&#3398;റ&#3391; ബ&#3405;ല&#3403;സ&#3330;"
+                ],
+               "answer": "A"
+            },
+            {
+                "question": "ഒര&#3393; ന&#3391;ശ&#3405;ച&#3391;ത ത&#3390;പന&#3391;ലയ&#3391;ൽ പരമ&#3390;വധ&#3391; ല&#3392;ന&#3330; ലയ&#3391;ച&#3405;ച&#3393; ച&#3399;ർന&#3405;ന&#3405; ര&#3394;പപ&#3405;പ&#3398;ട&#3393;ന&#3405;ന ല&#3390;യന&#3391;:",
+                "options": [
+                    "അത&#3391;പ&#3394;ര&#3391;ത ല&#3390;യന&#3391;",
+                    "പ&#3394;ര&#3391;ത ല&#3390;യന&#3391;",
+                    "യഥ&#3390;ർത&#3405;ഥ ല&#3390;യന&#3391;",
+                    "അപ&#3394;ര&#3391;ത ല&#3390;യന&#3391;"
+                ],
+               "answer": "B"
+            },
+            {
+                "question": "ദ&#3399;ശ&#3392;യ വര&#3393;മ&#3390;ന&#3330; കണക&#3405;ക&#3390;ക&#3405;ക&#3393;ന&#3405;ന അവല&#3330;ബ&#3391;ക&#3405;ക&#3393;ന&#3405;ന ര&#3392;ത&#3391;കള&#3391;ൽ ഉൾപ&#3405;പ&#3398;ട&#3390;ത&#3405;തത&#3405; ഏത&#3390;ണ&#3405;:",
+                "options": [
+                    "വര&#3393;മ&#3390;ന ര&#3392;ത&#3391;",
+                    "ച&#3398;ലവ&#3393; ര&#3392;ത&#3391;",
+                    "ഉൽപ&#3405;പ&#3390;ദന ര&#3392;ത&#3391;",
+                    "അറ&#3391;വധ&#3391;ഷ&#3405;ഠ&#3391;ത ര&#3392;ത&#3391;"
+                ],
+               "answer": "D"
+            },
+            {
+                "question": "പ&#3398;ൻസ&#3391;ൽ ക&#3403;മ&#3405;പസ&#3391;ൽ ഘട&#3391;പ&#3405;പ&#3391;ച&#3405;ച&#3405; വ&#3395;ത&#3405;ത&#3330; വരക&#3405;ക&#3393;ന&#3405;നത&#3405; ഏത&#3393; ചലനത&#3405;ത&#3391;ന&#3405; ഉദ&#3390;ഹരണ&#3330; ആണ&#3405;:",
+                "options": [
+                    "ന&#3399;ർര&#3399;ഖ ചലന&#3330;",
+                    "ഭ&#3405;രമണ ചലന&#3330;",
+                    "വർത&#3405;ത&#3393;ള ചലന&#3330;",
+                    "ക&#3405;രമ&#3390;വർത&#3405;തന ചലന&#3330;"
+                ],
+               "answer": "C"
+            },
+            {
+                "question": "പ&#3405;രത&#3391;ശ&#3392;ർഷ വര&#3393;മ&#3390;ന&#3330;?",
+                "options": [
+                    "ദ&#3399;ശ&#3392;യ വര&#3393;മ&#3390;നത&#3405;ത&#3398; ആക&#3398; ജനസ&#3330;ഖ&#3405;യ ക&#3402;ണ&#3405;ട&#3405; ഹര&#3391;ച&#3405;ച&#3390;ൽ ക&#3391;ട&#3405;ട&#3393;ന&#3405;ന സ&#3330;ഖ&#3405;യ",
+                    "സ&#3390;ങ&#3405;ക&#3399;ത&#3391;കമ&#3390;യ&#3391; ദ&#3399;ശ&#3392;യവര&#3393;മ&#3390;ന&#3330; എന&#3405;നറ&#3391;യപ&#3405;പ&#3398;ട&#3393;ന&#3405;നത&#3390;ണ&#3405; പ&#3405;രത&#3391;ശ&#3392;ർഷ വര&#3393;മ&#3390;ന&#3330;",
+                    "അന&#3405;ത&#3391;മ ഉൽപ&#3405;പന&#3405;നങ&#3405;ങള&#3393;ട&#3398; പണ&#3330; മ&#3394;ലമ&#3390;ണ&#3405; പ&#3405;രത&#3391;ശ&#3392;ർഷ വര&#3393;മ&#3390;ന&#3330;",
+                    "മ&#3402;ത&#3405;ത&#3330; ദ&#3399;ശ&#3392;യ ഉൽപ&#3405;പന&#3405;നത&#3405;ത&#3391;ൽ എന&#3405;ന&#3405; ത&#3399;യ&#3405;മ&#3390;ന ച&#3398;ലവ&#3405; ക&#3393;റയ&#3405; ക&#3405;ക&#3393;മ&#3405;പ&#3403;ൾ ലഭ&#3405;യമ&#3390;ക&#3393;ന&#3405;ന സ&#3330;ഖ&#3405;യ പ&#3405;രത&#3391;ശ&#3392;ർഷ വര&#3393;മ&#3390;ന&#3330;"
+                ],
+               "answer": "A"
+            },
+            {
+                "question": "അച&#3405;ച&#3393;തണ&#3405;ട&#3405; ശക&#3405;ത&#3391;കൾ എന&#3405;നറ&#3391;യപ&#3405;പ&#3398;ട&#3393;ന&#3405;ന ര&#3390;ജ&#3405;യങ&#3405;ങൾ:",
+                "options": [
+                    "ജർമ&#3405;മന&#3391;, അമ&#3399;ര&#3391;ക&#3405;ക, ജപ&#3405;പ&#3390;ൻ",
+                    "അമ&#3399;ര&#3391;ക&#3405;ക, ബ&#3405;ര&#3391;ട&#3405;ടൻ, ഫ&#3405;ര&#3390;ൻസ&#3405;, ക&#3390;നഡ",
+                    "ജർമന&#3391;, ഇറ&#3405;റല&#3391;, ജപ&#3405;പ&#3390;ൻ",
+                    "ജർമ&#3405;മന&#3391;, ആസ&#3405;ട&#3405;ര&#3391;യ, ഹ&#3330;ഗറ&#3391;"
+                ],
+               "answer": "C"
+            },
+            {
+                "question": "ത&#3395;ത&#3392;യ മ&#3399;ഖലയ&#3393;മ&#3390;യ&#3391; ബന&#3405;ധപ&#3405;പ&#3398;ട&#3405;ട ശര&#3391;യ&#3390;യ പ&#3405;രസ&#3405;ത&#3390;വന കണ&#3405;ട&#3398;ത&#3405;ത&#3393;ക:",
+                "options": [
+                    "ക&#3395;ഷ&#3391;യ&#3393;&#3330; അന&#3393;ബന&#3405;ധ പ&#3405;രവർത&#3405;തനങ&#3405;ങള&#3393;&#3330; ഉൾപ&#3405;പ&#3398;ട&#3393;ന&#3405;ന മ&#3399;ഖല",
+                    "വ&#3405;യവസ&#3390;യ&#3330; ഉൾപ&#3405;പ&#3398;ട&#3393;ന&#3405;ന മ&#3399;ഖല",
+                    "ഇന&#3405;ത&#3405;യയ&#3393;ട&#3398; ദ&#3399;ശ&#3392;യ വര&#3393;മ&#3390;നത&#3405;ത&#3391;ല&#3399;ക&#3405;ക&#3405; ക&#3394;ട&#3393;തൽ വ&#3391;ഹ&#3391;ത&#3330; നൽക&#3393;ന&#3405;ന മ&#3399;ഖല",
+                    "ഗ&#3390;ന&#3405;ധ&#3391;യൻ സമ&#3405;പത&#3405;ത&#3405; വ&#3405;യവസ&#3405;ഥ എന&#3405;നറ&#3391;യപ&#3405;പ&#3398;ട&#3393;ന&#3405;ന മ&#3399;ഖല"
+                ],
+               "answer": "C"
+            },
+            {
+                "question": "ഫ&#3405;രഞ&#3405;ച&#3393;ക&#3390;ർ ഇന&#3405;ത&#3405;യയ&#3391;ല&#3398; ആദ&#3405;യത&#3405;ത&#3398; വ&#3405;യ&#3390;പ&#3390;രക&#3399;ന&#3405;ദ&#3405;ര&#3330; സ&#3405;ഥ&#3390;പ&#3391;ച&#3405;ച വർഷ&#3330;:",
+                "options": [
+                    "1668",
+                    "1602",
+                    "1628",
+                    "1664"
+                ],
+               "answer": "A"
+            },
+            {
+                "question": "ഫ&#3405;രഞ&#3405;ച&#3393;ക&#3390;ര&#3393;ട&#3398; ക&#3399;രളത&#3405;ത&#3391;ല&#3398; വ&#3405;യ&#3390;പ&#3390;ര ക&#3399;ന&#3405;ദ&#3405;ര&#3330; എവ&#3391;ട&#3398;യ&#3390;യ&#3391;ര&#3393;ന&#3405;ന&#3393;:",
+                "options": [
+                    "പ&#3403;ണ&#3405;ട&#3391;ച&#3405;ച&#3399;ര&#3391;",
+                    "മ&#3390;ഹ&#3391;",
+                    "തലശ&#3405;ശ&#3399;ര&#3391;",
+                    "മട&#3405;ട&#3390;ഞ&#3405;ച&#3399;ര&#3391;"
+                ],
+               "answer": "B"
+            },
+            {
+                "question": "പ&#3415;രസമത&#3405;വവ&#3390;ദ പ&#3405;രക&#3405;ഷ&#3403;ഭ&#3330; നടന&#3405;ന വർഷ&#3330;:",
+                "options": [
+                    "1919-1920",
+                    "1921-1923",
+                    "1919-1922",
+                    "1918-1921"
+                ],
+               "answer": "C"
+            },
+            {
+                "question": "ഹ&#3391;ന&#3405;ദ&#3393;-മ&#3393;സ&#3405;&#8204;ല&#3391;&#3330; ഐക&#3405;യത&#3405;ത&#3391;ന&#3405; മ&#3399;ൽ പത&#3391;ച&#3405;ച ബ&#3403;&#3330;ബ&#3398;ന&#3405;ന&#3405; ബ&#3330;ഗ&#3390;ൾ വ&#3391;ഭജനത&#3405;ത&#3398; വ&#3391;ശ&#3399;ഷ&#3391;പ&#3405;പ&#3391;ച&#3405;ചത&#3405; ആര&#3390;ണ&#3405;:",
+                "options": [
+                    "രവ&#3392;ന&#3405;ദ&#3405;രന&#3390;ഥ ട&#3390;ഗ&#3403;ർ",
+                    "ബ&#3390;ലഗ&#3330;ഗ&#3390;ധര ത&#3391;ലക&#3405;",
+                    "ക&#3395;ഷ&#3405;ണക&#3393;മ&#3390;ർ മ&#3391;ത&#3405;ര",
+                    "സ&#3393;ര&#3399;ന&#3405;ദ&#3405;രന&#3390;ഥ&#3405; ബ&#3390;നർജ&#3391;"
+                ],
+               "answer": "D"
+            },
+            {
+                "question": "രണ&#3405;ട&#3390;&#3330; ല&#3403;കമഹ&#3390;യ&#3393;ദ&#3405;ധത&#3405;ത&#3398; ആസ&#3405;പദമ&#3390;ക&#3405;ക&#3391; ച&#3390;ർല&#3391; ച&#3390;പ&#3405;ല&#3391;ൻ ന&#3391;ർമ&#3405;മ&#3391;ച&#3405;ച സ&#3391;ന&#3391;മ ഏത&#3390;ണ&#3405;:",
+                "options": [
+                    "ദ ഗ&#3405;ര&#3399;റ&#3405;റ&#3405; ഡ&#3391;ക&#3405;റ&#3405;റ&#3399;റ&#3405;റർ",
+                    "മ&#3403;ഡ&#3399;ൺ ട&#3400;&#3330;സ&#3405;",
+                    "ഹ&#3391;ര&#3403;ഷ&#3391;മ മ&#3403;ൺ അമ&#3403;ർ",
+                    "ദ ഗ&#3403;ൾഡ&#3405; റഷ&#3405;"
+                ],
+               "answer": "A"
+            },
+            {
+                "question": "ജനക&#3392;യ പദ&#3405;ധത&#3391;യ&#3393;ട&#3398; ഉപജ&#3405;ഞ&#3390;ത&#3390;വ&#3405;:",
+                "options": [
+                    "ജയപ&#3405;രക&#3390;ശ&#3405; ന&#3390;ര&#3390;യണൻ",
+                    "ഗ&#3390;ന&#3405;ധ&#3391;ജ&#3391;",
+                    "എ&#3330;. വ&#3391;ശ&#3405;വ&#3399;ശ&#3405;വരയ&#3405;യ",
+                    "എ&#3330;. എൻ. റ&#3403;യ&#3391;"
+                ],
+               "answer": "D"
+            },
+            {
+                "question": "അറ&#3405;റ ദ&#3399;ശ&#3392;യ ഉൽപ&#3405;പന&#3405;ന&#3330; എന&#3405;നത&#3393; ക&#3402;ണ&#3405;ട&#3405; എന&#3405;ത&#3390;ണ&#3405; ഉദ&#3405;ദ&#3399;ശ&#3391;ക&#3405;ക&#3393;ന&#3405;നത&#3405;:",
+                "options": [
+                    "മ&#3402;ത&#3405;ത ദ&#3399;ശ&#3392;യ ഉൽപ&#3405;പന&#3405;നത&#3391;ൽ ന&#3391;ന&#3405;ന&#3405; ത&#3399;യ&#3405;മ&#3390;ന ച&#3398;ലവ&#3405; ക&#3393;റയ&#3405;&#8204;ക&#3405;ക&#3393;മ&#3405;പ&#3403;ൾ ലഭ&#3405;യമ&#3390;ക&#3393;ന&#3405;നത&#3405;",
+                    "മ&#3399;ഖലകൾ ത&#3391;ര&#3391;ച&#3405;ച&#3393;ള&#3405;ള സ&#3390;മ&#3405;പത&#3405;ത&#3391;ക വ&#3391;ശകലനത&#3405;ത&#3391;ന&#3405;റ&#3398; ഏറ&#3405;റവ&#3393;&#3330; ഉച&#3391;തമ&#3390;യ ആശയ&#3330;",
+                    "ഉപഭ&#3403;ഗത&#3405;ത&#3391;ന&#3390;യ&#3391; ലഭ&#3405;യമ&#3390;ക&#3393;ന&#3405;ന ഉൽപ&#3405;പന&#3405;നത&#3405;ത&#3398; വ&#3391;ള&#3391;ക&#3405;ക&#3393;ന&#3405;നത&#3405;",
+                    "No Answer"
+                ],
+               "answer": "A"
+            },
+            {
+                "question": "അയ&#3391;ത&#3405;തത&#3405;ത&#3391;ന&#3398;ത&#3391;ര&#3398; ക&#3399;രളത&#3405;ത&#3391;ൽ ആദ&#3405;യമ&#3390;യ&#3391; നടന&#3405;ന ജനക&#3392;യ പ&#3405;രക&#3405;ഷ&#3403;ഭ&#3330; ഏത&#3390;ണ&#3405;:",
+                "options": [
+                    "മലബ&#3390;ർ കല&#3390;പ&#3330;",
+                    "ച&#3390;ന&#3405;ന&#3390;ർ ലഹള",
+                    "വ&#3400;ക&#3405;ക&#3330; സത&#3405;യ&#3390;ഗ&#3405;രഹ&#3330;",
+                    "തള&#3391; റ&#3403;ഡ&#3405; സമര&#3330;"
+                ],
+               "answer": "D"
+            },
+            {
+                "question": "1767ല&#3398; ട&#3415;ൺഷ&#3398;ന&#3405;റ&#3405; ന&#3391;യമ&#3330;  ഏത&#3405; വ&#3391;പ&#3405;ലവ&#3393;മ&#3390;യ&#3391; ബന&#3405;ധപ&#3405;പ&#3398;ട&#3405;ട&#3391;ര&#3391;ക&#3405;ക&#3393;ന&#3405;ന&#3393;:",
+                "options": [
+                    "ഫ&#3405;രഞ&#3405;ച&#3405; വ&#3391;പ&#3405;ലവ&#3330;",
+                    "അമ&#3399;ര&#3391;ക&#3405;കൻ സ&#3405;വ&#3390;തന&#3405;ത&#3405;ര&#3405;യ സമര&#3330;",
+                    "ച&#3400;ന&#3392;സ&#3405; വ&#3391;പ&#3405;ലവ&#3330;",
+                    "റഷ&#3405;യൻ വ&#3391;പ&#3405;ലവ&#3330;"
+                ],
+               "answer": "B"
+            },
+            {
+                "question": "ഓട&#3391;ക&#3405;ക&#3402;ണ&#3405;ട&#3391;ര&#3391;ക&#3405;ക&#3393;ന&#3405;ന ബസ&#3405; പ&#3398;ട&#3405;ട&#3398;ന&#3405;ന&#3405; ന&#3391;ർത&#3405;ത&#3393;മ&#3405;പ&#3403;ൾ ന&#3391;ൽക&#3405;ക&#3393;ന&#3405;ന ആൾക&#3405;ക&#3390;ർ മ&#3393;ന&#3405;ന&#3403;ട&#3405;ട&#3393; വ&#3392;ഴ&#3393;ന&#3405;ന അത&#3391;ന&#3393;ള&#3405;ള ക&#3390;രണ&#3330;:",
+                "options": [
+                    "ന&#3391;ശ&#3405;ചല ജഡത&#3405;വ&#3330;",
+                    "ചലന ജഡത&#3405;വ&#3330;",
+                    "ആവ&#3399;ഗ&#3330;",
+                    "ആക&#3405;ക&#3330;"
+                ],
+               "answer": "B"
+            },
+            {
+                "question": "സ&#3405;റ&#3405;റ&#3390;റ&#3405;റ&#3391;ക&#3405;സ&#3405;?",
+                "options": [
+                    "ന&#3391;ശ&#3405;ചല&#3390;വസ&#3405;ഥയ&#3391;ൽ ഉള&#3405;ള വസ&#3405;ത&#3393;ക&#3405;കള&#3398; ക&#3393;റ&#3391;ച&#3405;ച&#3393;ള&#3405;ള പഠന&#3330;",
+                    "സമ&#3405;പത&#3405;ത&#3391;ന&#3398; ക&#3393;റ&#3391;ച&#3405;ച&#3393;ള&#3405;ള പഠന&#3330;",
+                    "സ&#3390;മ&#3405;പത&#3405;ത&#3391;ക ശ&#3390;സ&#3405;ത&#3405;രത&#3405;ത&#3398; ക&#3393;റ&#3391;ച&#3405;ച&#3393;ള&#3405;ള പഠന&#3330;",
+                    "ചലനത&#3405;ത&#3398; ക&#3393;റ&#3391;ച&#3405;ച&#3393;ള&#3405;ള പഠന&#3330;"
+                ],
+               "answer": "A"
+            },
+            {
+                "question": "2020-2021 ന&#3392;ത&#3391; ആയ&#3403;ഗ&#3391;ന&#3405;റ&#3398; സ&#3393;സ&#3405;ഥ&#3391;ര വ&#3391;കസന സ&#3394;ച&#3391;ക റ&#3391;പ&#3405;പ&#3403;ർട&#3405;ട&#3405; പ&#3405;രക&#3390;ര&#3330; ആര&#3403;ഗ&#3405;യ ക&#3405;ഷ&#3399;മ സ&#3394;ച&#3391;കയ&#3391;ൽ മ&#3393;ന&#3405;ന&#3391;ൽ ന&#3391;ൽക&#3405;ക&#3393;ന&#3405;ന സ&#3330;സ&#3405;ഥ&#3390;ന&#3330;:",
+                "options": [
+                    "ക&#3399;രള&#3330;",
+                    "ഗ&#3393;ജറ&#3390;ത&#3405;ത&#3405;",
+                    "ര&#3390;ജസ&#3405;ഥ&#3390;ൻ",
+                    "തമ&#3391;ഴ&#3405;ന&#3390;ട&#3405;"
+                ],
+               "answer": "B"
+            },
+            {
+                "question": "ഐക&#3405;യര&#3390;ഷ&#3405;ട&#3405;ര സ&#3330;ഘടനയ&#3393;ട&#3398;  മ&#3390;നവ സന&#3405;ത&#3403;ഷ സ&#3394;ച&#3391;ക 2020 ഇന&#3405;ത&#3405;യയ&#3393;ട&#3398; സ&#3405;ഥ&#3390;ന&#3330; എത&#3405;രയ&#3390;ണ&#3405;:",
+                "options": [
+                    "142",
+                    "140",
+                    "144",
+                    "139"
+                ],
+               "answer": "C"
+            },
+            {
+                "question": "സ&#3405;വ&#3390;തന&#3405;ത&#3405;ര&#3405;യത&#3405;ത&#3391;ന&#3393; ശ&#3399;ഷ&#3330; ക&#3399;രളത&#3405;ത&#3391;ല&#3398; പ&#3405;രത&#3405;യ&#3399;ക സ&#3330;സ&#3405;ഥ&#3390;നമ&#3390;യ&#3391; പ&#3393;ന&#3331;സ&#3330;ഘട&#3391;പ&#3405;പ&#3391;ക&#3405;ക&#3390;ൻ എന&#3405;ന പ&#3405;രമ&#3399;യ&#3330; അവതര&#3391;പ&#3405;പ&#3391;ക&#3405;കപ&#3405;പ&#3398;ട&#3405;ട വർഷ&#3330;:",
+                "options": [
+                    "1926",
+                    "1925",
+                    "1931",
+                    "1928"
+                ],
+               "answer": "D"
+            },
+            {
+                "question": "ജനക&#3392;യ പരമ&#3390;ധ&#3391;ക&#3390;ര&#3330; എന&#3405;ന ആശയ&#3330; നൽക&#3391;യത&#3405;:",
+                "options": [
+                    "റഷ&#3405;യൻ വ&#3391;പ&#3405;ലവ&#3330;",
+                    "ച&#3400;ന&#3392;സ&#3405; വ&#3391;പ&#3405;ലവ&#3330;",
+                    "രണ&#3405;ട&#3390;&#3330; ല&#3403;ക മഹ&#3390;യ&#3393;ദ&#3405;ധ&#3330;",
+                    "ഫ&#3405;രഞ&#3405;ച&#3405; വ&#3391;പ&#3405;ലവ&#3330;"
+                ],
+               "answer": "D"
+            },
+            {
+                "question": "പ&#3403;റ&#3405;റ&#3391; ശ&#3405;ര&#3392;ര&#3390;മല&#3393;വ&#3391;ന&#3405;റ&#3398; സ&#3405;മരണ&#3390;ർത&#3405;ഥ&#3330; ആന&#3405;ധ&#3405;രപ&#3405;രദ&#3399;ശ&#3391;ൽ ന&#3390;മകരണ&#3330; ച&#3398;യ&#3405;യപ&#3405;പ&#3398;ട&#3405;ട ജ&#3391;ല&#3405;ല:",
+                "options": [
+                    "ക&#3393;ർണ&#3405;ണ&#3394;ൽ",
+                    "ന&#3398;ല&#3405;ല&#3394;ർ",
+                    "അമര&#3390;വത&#3391;",
+                    "ര&#3390;മഗ&#3393;ണ&#3405;ട&#3330;"
+                ],
+               "answer": "B"
+            },
+            {
+                "question": "ക&#3394;ക കല&#3390;പ&#3330; നടന&#3405;ന സ&#3330;സ&#3405;ഥ&#3390;ന&#3330; ഏത&#3390;ണ&#3405;:",
+                "options": [
+                    "പഞ&#3405;ച&#3390;ബ&#3405;",
+                    "ജ&#3390;ർഘഡ&#3405;",
+                    "കർണ&#3390;ടക",
+                    "മഹ&#3390;ര&#3390;ഷ&#3405;ട&#3405;ര"
+                ],
+               "answer": "A"
+            },
+            {
+                "question": "ത&#3391;ര&#3393;വ&#3391;ത&#3390;&#3330;ക&#3394;റ&#3391;ൽ ദ&#3399;വസ&#3405;വ&#3330; വക&#3393;പ&#3405;പ&#3391;ന&#3398; റവന&#3405;യ&#3394; വക&#3393;പ&#3405;പ&#3391;ൽ ന&#3391;ന&#3405;ന&#3405; വ&#3399;ർത&#3391;ര&#3391;ക&#3405;ക&#3390;ൻ ക&#3390;രണമ&#3390;യ സ&#3330;ഭവ&#3330;:",
+                "options": [
+                    "ന&#3391;വർത&#3405;തന പ&#3405;രക&#3405;ഷ&#3403;ഭ&#3330;",
+                    "മലയ&#3390;ള&#3391; മ&#3398;മ&#3405;മ&#3403;റ&#3391;യൽ",
+                    "പ&#3415;രസമത&#3405;വവ&#3390;ദ പ&#3405;രക&#3405;ഷ&#3403;ഭ&#3330;",
+                    "ഈഴവ മ&#3398;മ&#3405;മ&#3403;റ&#3391;യൽ"
+                ],
+               "answer": "C"
+            },
+              {
+                  "question": "കടമന&#3391;ട&#3405;ട ര&#3390;മക&#3395;ഷ&#3405;ണൻ പ&#3393;രസ&#3405;ക&#3390;ര&#3330; ന&#3399;ട&#3391;യത&#3405; ആര&#3390;ണ&#3405;:",
+                  "options": [
+                      "ക&#3398; ജ&#3391; ശങ&#3405;കരപ&#3405;പ&#3391;ള&#3405;ള",
+                      "ക&#3398;. വ&#3391;. മ&#3403;ഹൻക&#3393;മ&#3390;ർ",
+                      "പ&#3405;രഭ&#3390;വർമ&#3405;മ",
+                      "സന&#3405;ത&#3403;ഷ&#3405;&#8204; ഏച&#3405;ച&#3391;ക&#3405;ക&#3390;ന&#3330;"
+                  ],
+                 "answer": "A"
+              },
+              {
+                  "question": "സ&#3393;സ&#3405;ഥ&#3391;ര വ&#3391;കസന&#3330; ലക&#3405;ഷ&#3405;യമ&#3390;ക&#3405;ക&#3391; നടത&#3405;ത&#3391;യ പഞ&#3405;ചവത&#3405;സര പദ&#3405;ധത&#3391;യ&#3393;ട&#3398; ക&#3390;ലയളവ&#3405; ഏത&#3390;യ&#3391;ര&#3393;ന&#3405;ന&#3393;:",
+                  "options": [
+                      "2010-2012",
+                      "2012-2017",
+                      "2007-2012",
+                      "2008-2016"
+                  ],
+                 "answer": "B"
+              },
+              {
+                  "question": "ഇന&#3405;ത&#3405;യയ&#3391;ല&#3398; വ&#3391;കസന&#3330; ന&#3399;ര&#3391;ട&#3393;ന&#3405;ന ഏറ&#3405;റവ&#3393;&#3330; പ&#3405;രധ&#3390;ന വ&#3398;ല&#3405;ല&#3393;വ&#3391;ള&#3391; ഏത&#3390;ണ&#3405;:",
+                  "options": [
+                      "ദ&#3390;ര&#3391;ദ&#3405;ര&#3405;യ&#3330;",
+                      "ന&#3391;രക&#3405;ഷരത",
+                      "പ&#3403;ഷക&#3390;ഹ&#3390;രക&#3405;ക&#3393;റവ&#3405;",
+                      "പട&#3405;ട&#3391;ണ&#3391; മരണ&#3330;"
+                  ],
+                 "answer": "A"
+              },
+              {
+                  "question": "സ&#3390;ഹ&#3391;ത&#3405;യപ&#3405;രവർത&#3405;തക സഹകരണ സ&#3330;ഘത&#3405;ത&#3391;ന&#3405;റ&#3398; ന&#3390;ല&#3390;മത&#3405; അക&#3405;ഷര പ&#3393;രസ&#3405;ക&#3390;രജ&#3399;ത&#3390;വ&#3405; ആര&#3390;ണ&#3405;:",
+                  "options": [
+                      "സ&#3393;ന&#3391;ൽ പ&#3391;.ഇളയ&#3391;ട&#3330;",
+                      "കലവ&#3394;ർ രവ&#3391;ക&#3393;മ&#3390;ർ",
+                      "മന&#3403;ജ&#3405; ക&#3390;ന",
+                      "ഇബ&#3405;ര&#3390;ഹ&#3391;&#3330; വ&#3399;ങ&#3405;ങര"
+                  ],
+                 "answer": "A"
+              },
+              {
+                  "question": "ഇന&#3405;ത&#3405;യയ&#3391;ൽ പ&#3405;രത&#3391;ശ&#3392;ർഷ വര&#3393;മ&#3390;ന&#3330; ഏറ&#3405;റവ&#3393;&#3330; ക&#3393;റവ&#3393;ള&#3405;ള സ&#3330;സ&#3405;ഥ&#3390;ന&#3330;:",
+                  "options": [
+                      "ബ&#3392;ഹ&#3390;ർ",
+                      "ഗ&#3393;ജറ&#3390;ത&#3405;ത&#3405;",
+                      "ഗ&#3403;വ",
+                      "സ&#3391;ക&#3405;ക&#3391;&#3330;"
+                  ],
+                 "answer": "A"
+              },
+              {
+                  "question": "ഇന&#3405;ത&#3405;യയ&#3393;ട&#3398; ദ&#3399;ശ&#3392;യ വര&#3393;മ&#3390;നത&#3405;ത&#3391;ല&#3399;ക&#3405;ക&#3405; ക&#3394;ട&#3393;തൽ വ&#3392;ത&#3330; നൽക&#3393;ന&#3405;ന മ&#3399;ഖല:",
+                  "options": [
+                      "പ&#3405;ര&#3390;ഥമ&#3391;ക മ&#3399;ഖല",
+                      "ദ&#3405;വ&#3391;ത&#3391;യ മ&#3399;ഖല",
+                      "ത&#3395;ത&#3391;യ മ&#3399;ഖല",
+                      "അറ&#3391;വധ&#3391;ഷ&#3405;ഠ&#3391;ത മ&#3399;ഖല"
+                  ],
+                 "answer": "C"
+              },
+              {
+                  "question": "പ&#3405;ല&#3390;ൻ ഇക&#3405;ക&#3403;ണമ&#3391; ഫ&#3403;ർ ഇന&#3405;ത&#3405;യ യ&#3393;ട&#3398; കർത&#3405;ത&#3390;വ&#3405;:",
+                  "options": [
+                      "എ&#3330; വ&#3391;ശ&#3405;വ&#3399;ശ&#3405;വരയ&#3405;യ",
+                      "ര&#3390;ജ&#3405; ക&#3395;ഷ&#3405;ണ",
+                      "പ&#3391;സ&#3391; മഹലന&#3403;ബ&#3391;സ&#3405;",
+                      "ജ&#3403;ൺ മത&#3405;ത&#3390;യ&#3391;"
+                  ],
+                 "answer": "A"
+              },
+              {
+                  "question": "ഇന&#3405;ത&#3405;യയ&#3393;ട&#3398; സ&#3390;മ&#3405;പത&#3405;ത&#3391;ക തലസ&#3405;ഥ&#3390;ന&#3330; എവ&#3391;ട&#3398;യ&#3390;ണ&#3405;:",
+                  "options": [
+                      "ക&#3402;ൽക&#3405;കത&#3405;ത",
+                      "ന&#3405;യ&#3394;ഡൽഹ&#3391;",
+                      "മ&#3393;&#3330;ബ&#3400;",
+                      "ഹ&#3400;ദര&#3390;ബ&#3390;ദ&#3405;"
+                  ],
+                 "answer": "C"
+              },
+              {
+                  "question": "ബ&#3391;ര&#3393;ദ പഠന&#3330; പ&#3394;ർത&#3405;ത&#3391;യ&#3390;ക&#3405;ക&#3393;ന&#3405;ന പ&#3398;ൺ ക&#3393;ട&#3405;ട&#3391;കൾക&#3405;ക&#3405; പ&#3390;സ&#3405;പ&#3403;ർട&#3405;ട&#3405; നൽക&#3390;ൻ ത&#3392;ര&#3393;മ&#3390;ന&#3391;ച&#3405;ച സ&#3330;സ&#3405;ഥ&#3390;ന&#3330;:",
+                  "options": [
+                      "ബ&#3392;ഹ&#3390;ർ",
+                      "ഗ&#3393;ജറ&#3390;ത&#3405;ത&#3405;&#8204;",
+                      "ഹര&#3391;യ&#3390;ന",
+                      "സ&#3391;ക&#3405;ക&#3391;&#3330;"
+                  ],
+                 "answer": "C"
+              },
+              {
+                  "question": "ഇന&#3405;ത&#3405;യയ&#3391;ല&#3398; ആദ&#3405;യ പ&#3405;ല&#3390;സ&#3405;മ ബ&#3390;ങ&#3405;ക&#3405; സ&#3405;ഥ&#3390;പ&#3391;തമ&#3390;ക&#3393;ന&#3405;നത&#3405; എവ&#3391;ട&#3398;യ&#3390;ണ&#3405;:",
+                  "options": [
+                      "ഡൽഹ&#3391;",
+                      "മ&#3393;&#3330;ബ&#3400;",
+                      "ക&#3402;ൽക&#3405;കത&#3405;ത",
+                      "ഹ&#3400;ദര&#3390;ബ&#3390;ദ&#3405;"
+                  ],
+                 "answer": "A"
+              },
+              {
+                  "question": "സ&#3398;ൻട&#3405;രൽ സ&#3405;റ&#3405;റ&#3390;റ&#3405;റ&#3391;സ&#3405;റ&#3405;റ&#3391;ക&#3405;കൽ ഓർഗന&#3400;സ&#3399;ഷൻ ആസ&#3405;ഥ&#3390;ന&#3330;:",
+                  "options": [
+                      "ഹ&#3400;ദര&#3390;ബ&#3390;ദ&#3405;",
+                      "ന&#3405;യ&#3394;ഡൽഹ&#3391;",
+                      "മ&#3393;&#3330;ബ&#3400;",
+                      "ക&#3402;ൽക&#3405;കത&#3405;ത"
+                  ],
+                 "answer": "B"
+              },
+              {
+                  "question": "ജനക&#3392;യ പദ&#3405;ധത&#3391; ആവ&#3391;ഷ&#3405;കര&#3391;ച&#3405;ച വർഷ&#3330;:",
+                  "options": [
+                      "1940",
+                      "1945",
+                      "1950",
+                      "1955"
+                  ],
+                 "answer": "B"
+              },
+              {
+                  "question": "സ&#3405;റ&#3405;റ&#3390;റ&#3405;റ&#3391;സ&#3405;റ&#3405;റ&#3391;ക&#3405;കൽ ദ&#3391;നമ&#3390;യ&#3391; ആചര&#3391;ക&#3405;ക&#3393;ന&#3405;നത&#3405;:",
+                  "options": [
+                      "ഓഗസ&#3405;റ&#3405;റ&#3405; 9",
+                      "ജ&#3394;ൺ 29",
+                      "ജ&#3394;ൺ 12",
+                      "മ&#3398;യ&#3405;&#8204; 15"
+                  ],
+                 "answer": "B"
+              },
+              {
+                  "question": "ട&#3405;രസ&#3405;റ&#3405;റ&#3392;ഷ&#3391;പ&#3405; എന&#3405;ന ആശയത&#3405;ത&#3391;ന&#3405; ഉപജ&#3405;ഞ&#3390;ത&#3390;വ&#3405;:",
+                  "options": [
+                      "ആഡ&#3330; സ&#3405;മ&#3391;ത&#3405;ത&#3405;",
+                      "ദ&#3390;ദ&#3390;ഭ&#3390;യ&#3391; നവറ&#3403;ജ&#3391;",
+                      "ഗ&#3390;ന&#3405;ധ&#3391;ജ&#3391;",
+                      "ന&#3398;ഹ&#3405;റ&#3393;"
+                  ],
+                 "answer": "C"
+              },
+              {
+                  "question": "ദ&#3399;ശ&#3392;യ വര&#3393;മ&#3390;ന&#3330; കണക&#3405;ക&#3390;ക&#3405;ക&#3393;ന&#3405;നത&#3391;ന&#3405; അവല&#3330;ബ&#3391;ക&#3405;ക&#3393;ന&#3405;ന  ര&#3392;ത&#3391;കള&#3391;ൽ ഉൾപ&#3405;പ&#3398;ട&#3390;ത&#3405;തത&#3405;:",
+                  "options": [
+                      "ച&#3398;ലവ&#3393; ര&#3392;ത&#3391;",
+                      "വര&#3393;മ&#3390;ന ര&#3392;ത&#3391;",
+                      "ഉൽപ&#3390;ദന ര&#3392;ത&#3391;",
+                      "പ&#3405;രത&#3391;ശ&#3392;ർഷ വര&#3393;മ&#3390;ന&#3330;"
+                  ],
+                 "answer": "D"
+              },
+              {
+                  "question": "ന&#3392;ത&#3391; ആയ&#3403;ഗ&#3405; സ&#3393;സ&#3405;ഥ&#3391;ര വ&#3391;കസന സ&#3394;ച&#3391;കയ&#3391;ൽ ഇന&#3405;ത&#3405;യൻ സ&#3330;സ&#3405;ഥ&#3390;നങ&#3405;ങള&#3391;ൽ ദ&#3390;ര&#3391;ദ&#3405;ര&#3330; ഇല&#3405;ല&#3390;യ&#3405;മയ&#3391;ൽ  ക&#3399;രളത&#3405;ത&#3391;ന&#3405;റ&#3398; സ&#3405;ഥ&#3390;ന&#3330; എത&#3405;ര&#3390;മത&#3390;ണ&#3405;:",
+                  "options": [
+                      "4",
+                      "3",
+                      "2",
+                      "6"
+                  ],
+                 "answer": "B"
+              },
+              {
+                  "question": "മ&#3390;നവ സന&#3405;ത&#3403;ഷ സ&#3394;ച&#3391;ക വ&#3391;കസ&#3391;പ&#3405;പ&#3391;ച&#3405;ച ര&#3390;ജ&#3405;യ&#3330; ഏത&#3390;ണ&#3405;:",
+                  "options": [
+                      "ച&#3400;ന",
+                      "ഭ&#3394;ട&#3405;ട&#3390;ൻ",
+                      "ഇന&#3405;ത&#3405;യ",
+                      "ഫ&#3391;ൻല&#3390;ൻഡ&#3405;"
+                  ],
+                 "answer": "B"
+              },
+              {
+                  "question": "2020ല&#3398; മ&#3390;നവ ശ&#3399;ഷ&#3391; വ&#3391;കസന റ&#3391;പ&#3405;പ&#3403;ർട&#3405;ട&#3405; പ&#3405;രക&#3390;ര&#3330; ഇന&#3405;ത&#3405;യയ&#3393;ട&#3398; സ&#3405;ഥ&#3390;ന&#3330;:",
+                  "options": [
+                      "131",
+                      "129",
+                      "130",
+                      "128"
+                  ],
+                 "answer": "A"
+              },
+              {
+                  "question": "2021ല&#3398; മ&#3390;നവ സന&#3405;ത&#3403;ഷ സ&#3394;ച&#3391;ക പ&#3405;രക&#3390;ര&#3330; ഇന&#3405;ത&#3405;യയ&#3393;ട&#3398; സ&#3405;ഥ&#3390;ന&#3330;:",
+                  "options": [
+                      "144",
+                      "139",
+                      "132",
+                      "117"
+                  ],
+                 "answer": "B"
+              },
+              {
+                  "question": "2020-ല&#3398; മ&#3390;നവ സ&#3394;ച&#3391;ക  റ&#3391;പ&#3405;പ&#3403;ർട&#3405;ട&#3405; പ&#3405;രക&#3390;ര&#3330; ഒന&#3405;ന&#3390;&#3330; സ&#3405;ഥ&#3390;നത&#3405;ത&#3393;ള&#3405;ള ര&#3390;ജ&#3405;യ&#3330;:",
+                  "options": [
+                      "ഫ&#3391;ൻല&#3390;ൻഡ&#3405;",
+                      "അമ&#3399;ര&#3391;ക&#3405;ക",
+                      "ന&#3403;ർവ&#3399;",
+                      "സ&#3405;വ&#3392;ഡൻ"
+                  ],
+                 "answer": "C"
+              }
+          
+        
+      
+    
+    
+  
+
+]
+
+
+</script>
+</body>
+</html>
+
