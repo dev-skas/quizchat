@@ -58,7 +58,7 @@
 .contentSec{
     overflow-y: scroll;
     position: relative;
-    height:88%;
+    height:90%;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none; 
 
@@ -218,6 +218,7 @@ box-sizing: content-box;
     color: white;
     margin-top: 10px;
     border-radius: 50px;
+    font-size: 14px;
 }
 .userAns{
     float:right;
@@ -231,6 +232,11 @@ box-sizing: content-box;
     border-radius: 20px;
     /* height: 30px; */
     position: relative;
+    
+}
+#userAnswer h4{
+    font-size: 14px;
+    font-weight: bold;
 }
 .userAns.arrow-right:after {
     content: " ";
