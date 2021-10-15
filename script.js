@@ -8,6 +8,7 @@ var wrongQn=0;
 var qn=0;
 
 
+
 document.getElementById("close").addEventListener("click",hide);
 document.getElementById("send").addEventListener("click",send);
 document.getElementById("retry").addEventListener("click",retry);
@@ -15,7 +16,13 @@ document.getElementById("restart").addEventListener("click",restart);
 
 
 
-
+function errorSend(){
+   var errorqn = document.getElementById("questionText").innerHTML;
+  
+   var whmsg = `https://api.whatsapp.com/send?phone=919447869738&text=Hi%20I%20found%20an%20error%20in%20Quiz%20Chat%20%0aQuestion%20%F0%9F%91%87%F0%9F%8F%BB%0a`
+  
+   window.location.replace(whmsg+errorqn);
+}
 
 
 function hide(){
@@ -36,7 +43,8 @@ function send(){
         document.getElementById("userReplay").innerText =name;
         document.getElementById("inputSection").setAttribute("class","hide");
         document.getElementById("rules").classList.remove("hide");
-        document.getElementById("ruleText").innerHTML = "Hi <b>"+name+"</b>  ഇപ്പോൾ ഞാൻ "+ myApp.length+" ചോദ്യങ്ങൾ മാത്രമേ പഠിച്ചിട്ടുള്ളു. അത് നിങ്ങൾക്കും പഠിക്കാം. എന്റെ മൊതലാളി കൂടുതൽ ചോദ്യങ്ങൾ പഠിപ്പിക്കുമ്പോൾ നിങ്ങൾക്കും ആ ചോദ്യങ്ങൾ ലഭ്യമാകും. ഓരോ ചോദ്യത്തിനും ഒരു മാർക്കാണ്. നെഗറ്റിവ് മാർക്ക്‌ ഇല്ല";
+        document.getElementById("ruleText").innerHTML = "Hi <b>"+name+"</b> ഓരോ ചോദ്യത്തിനും ഒരു മാർക്കാണ്. നെഗറ്റിവ് മാർക്ക്‌ ഇല്ല";
+
 
 
     }
